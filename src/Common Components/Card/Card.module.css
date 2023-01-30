@@ -11,10 +11,27 @@
     scale: 1.02;
 }
 
+.card75Product {
+    width: 100%;
+    margin-bottom: 0;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+}
+
+.card75Product:hover {
+    scale: 1;
+}
+
 .card23ProductDetails {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+}
+
+.card45ProductDetails {
+    flex-direction: row;
+    width: 50rem;
 }
 
 .card23ProductDetails img {
@@ -44,4 +61,19 @@
 
 .card09Rating img {
     height: 1rem;
+}
+
+.card98Buttons {
+    margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card78AddToCart {
+    padding: 1rem;
+}
+
+.card54BuyNow { 
+    padding: 1rem;
 }

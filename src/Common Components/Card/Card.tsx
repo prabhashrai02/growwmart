@@ -6,42 +6,80 @@ import React from 'react';
 
 import style from './Card.module.css';
 import Ellipsis from '../Ellipsis/Ellipsis';
+import Button from '../Button/Button';
 
 const Card = (props: CardProps) => {
 
+    const data = props.data;
+    const cartPage = props.cartData;
+    const productPage = props.productPage;
+
+    const cardStyle = productPage ? `${style.card75Product}` : "";
+    const cardAlignment = productPage ? `${style.card45ProductDetails}` : "";
+
     return (
-        <div className={style.card54Product}> {
-            props.data && (
-                <div className={`${style.card23ProductDetails}`}>
-                    <img src={props.data.image} />
+        <div className={`${style.card54Product} ${cardStyle}`}> {
+            data && (
+                <div className={`${style.card23ProductDetails} ${cardAlignment}`}>
+                    <img src={data.image} />
                     <div className={style.card23ProductDescription}>
 
-                        <h3><Ellipsis text={props.data.title} size={35} /></h3>
-                        <p>{props.data.category}</p>
+                        {
+                            productPage ? (
+
+                                <h3> {data.title} </h3>
+                            )
+                                :
+                                (
+
+                                    <h3><Ellipsis text={data.title} size={35} /></h3>
+                                )
+                        }
+                        <p>{data.category}</p>
 
                         {
-                            props.showDescription && (
+                            productPage && (
                                 <>
                                     <br></br>
-                                    <p>{props.data.description}</p>
+                                    <p>{data.description}</p>
+                                    <br></br>
                                 </>
                             )
                         }
 
-                        <br></br>
-                        <h2>{props.data.price} &#x20b9;</h2>
+                        <h2>{data.price} &#x20b9;</h2>
                         <br></br>
 
                         <div className={style.card09Rating}>
 
                             <div className={style.card39RatingStar}>
-                                <p>{props.data.rating.rate}</p>
+                                <p>{data.rating.rate}</p>
                                 <img src={star.src} />
                             </div>
 
                             &emsp;
-                            <p>({props.data.rating.count})</p>
+                            <p>({data.rating.count})</p>
+
                         </div>
+                        <>
+                            {
+                                productPage && (
+                                    <div className={style.card98Buttons}>
+                                        <Button value='Add to Cart' className={style.card78AddToCart} />
+                                        <Button value='Buy Now' className={style.card54BuyNow} />
+                                    </div>
+                                )
+                            }
+                        </>
+                        {
+                            cartPage && (
+                                <div>
+                                    <img src='' />
+                                    <h5>Count: 0</h5>
+                                    <img src='' />
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             )
