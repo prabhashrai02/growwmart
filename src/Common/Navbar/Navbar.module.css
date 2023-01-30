@@ -1,0 +1,69 @@
+.navbar32Bar {
+    box-shadow: var(--box-shadow);
+    display: flex;
+    position: fixed;
+    padding: 1.5rem;
+    height: 8%;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    z-index: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar45Left {
+    display: flex;
+    height: 4rem;
+}
+
+.navbar23Heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.2rem;
+    font-size: x-large;
+}
+
+.navbar98Center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.navbar85Input {
+    width: 100%;
+    line-height: 2rem;
+    border-radius: 0.2rem;
+}
+
+.navbar44Right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar90Cart {
+    margin-top: -1.3rem;
+    margin-left: -0.8rem;
+}
+
+.navbar75CartItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--cart-items);
+}
+
+
+@media (max-width: 768px) {
+    .navbar32Bar {
+        padding: 0.5rem;
+    }
+}

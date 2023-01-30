@@ -1,0 +1,22 @@
+.ellipsis32Tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.ellipsis32Tooltip .ellipsis90TooltipText {
+    border-radius: 0.5rem;
+    visibility: hidden;
+    background-color: var(--tooltip-background);
+    color: var(--tooltip-text);
+    text-align: center;
+    padding: 0.5rem;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+  
+.ellipsis32Tooltip:hover .ellipsis90TooltipText {
+    visibility: visible;
+    font-size: smaller;
+}
