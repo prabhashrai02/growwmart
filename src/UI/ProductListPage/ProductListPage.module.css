@@ -1,0 +1,23 @@
+.productlist43page {
+    display: flex;
+    width: 100vw;
+    margin-top: 6rem;
+}
+
+.productlist41alloproducts {
+    width: 70%;
+    margin-left: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+    .productlist43page {
+        flex-direction: column;
+    }
+    
+    .productlist41alloproducts {
+        width: 100%;
+    }
+}
