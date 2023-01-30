@@ -4,8 +4,16 @@ export type EllipsisProps = {
 }
 
 export type CardProps = {
-    data: Product;
-    showDescription?: boolean;
+    data?: Product;
+    cartData?: CartDetails;
+    productPage?: boolean;
+    cartPage?: boolean;
+}
+
+export type ButtonProps = {
+    value: string;
+    className: string; 
+    function?: Function;  
 }
 
 export type Product = {
@@ -21,4 +29,17 @@ export type Product = {
 export type rating = {
     count: number;
     rate: number;
+}
+
+export type CartDetails = {
+    date: string;
+    id: number;
+    products: CartProduct;
+    userId: number;
+    _v: number;
+}
+
+export type CartProduct = {
+    productId: number;
+    quantity: number;
 }
