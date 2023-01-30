@@ -1,18 +1,8 @@
-import Card from '@/Common Components/Card/Card';
-import { Product } from '@/utils/Types';
-import React, { useEffect, useState } from 'react'
+import Card from '@/Common/Card';
+import { getProduct } from '@/utils/functions';
 
 const ProductPage = () => {
-
-  const [product, setProduct] = useState<Product | undefined>();
-
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products/1')
-      .then(res => res.json())
-      .then(data => {
-        setProduct(data);
-      })
-  }, []);
+  const product = getProduct(11);
 
   return (
     <div>

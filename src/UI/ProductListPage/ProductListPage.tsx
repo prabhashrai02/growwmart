@@ -1,5 +1,5 @@
-import Card from '@/Common Components/Card/Card';
-import Filters from '@/Common Components/Filters/Filters';
+import Card from '@/Common/Card';
+import Filters from '@/Common/Filters';
 
 import React, { ReactNode, useEffect, useState } from 'react'
 
