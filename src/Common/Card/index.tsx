@@ -20,11 +20,6 @@ const Card = (props: CardProps) => {
     const cardStyle = productPage ? `${style.card75Product}` : "";
     const cardAlignment = productPage ? `${style.card45ProductDetails}` : "";
 
-    const increase = () => {
-        console.log("aaya")
-        dispatch(increment);
-    }
-
     return (
         <div className={`${style.card54Product} ${cardStyle}`}> {
             data && (

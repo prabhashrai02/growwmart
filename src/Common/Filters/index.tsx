@@ -1,4 +1,4 @@
-import { useFilters } from '@/utils/functions';
+import { useFilters } from '@/utils/customHooks';
 import React, { ReactNode } from 'react';
 import style from './Filters.module.css';
 
