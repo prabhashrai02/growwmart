@@ -4,6 +4,7 @@ import { CartState, Product } from '@/utils/Types'
 const initialState: CartState = {
   value: 0,
   products: [],
+  totalCost: 0,
 }
 
 export const cart = createSlice({
@@ -25,10 +26,13 @@ export const cart = createSlice({
       })
 
       state.value = total;
+
+      state.totalCost += action.payload.price;
     },
     setData: (state, action: PayloadAction<CartState>) => {
       state.value = action.payload.value;
       state.products = action.payload.products;
+      state.totalCost = action.payload.totalCost;
     }
   }
 })
