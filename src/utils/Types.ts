@@ -1,3 +1,8 @@
+export type CounterState = {
+    value: number;
+    product: Product | null;
+}
+
 export type EllipsisProps = {
     text: string;
     size?: number;
@@ -12,8 +17,8 @@ export type CardProps = {
 
 export type ButtonProps = {
     value: string;
-    className: string; 
-    function?: Function;  
+    className: string;
+    func?: () => void;
 }
 
 export type Product = {
