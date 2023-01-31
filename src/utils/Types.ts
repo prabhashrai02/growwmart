@@ -1,6 +1,11 @@
-export type CounterState = {
+export type CartState = {
     value: number;
-    product: Product | null;
+    products: CartList[];
+}
+
+export type CartList = {
+    product: Product,
+    quantity: number;
 }
 
 export type EllipsisProps = {

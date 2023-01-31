@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import style from './Card.module.css';
 import Ellipsis from '@/Common/Ellipsis';
 import Button from '@/Common/Button';
-import { increment } from '@/Store/slices/counterSlice';
+import { addToCart } from '@/Store/slices/cartSlice';
 
 const Card = (props: CardProps) => {
     const dispatch = useDispatch();
@@ -67,8 +67,8 @@ const Card = (props: CardProps) => {
                             {
                                 productPage && (
                                     <div className={style.card98Buttons}>
-                                        <Button value='Add to Cart' className={style.card78AddToCart} func={() => dispatch(increment())} />
-                                        <Button value='Buy Now' className={style.card54BuyNow} func={() => dispatch(increment())} />
+                                        <Button value='Add to Cart' className={style.card78AddToCart} func={() => dispatch(addToCart(data))} />
+                                        <Button value='Buy Now' className={style.card54BuyNow} func={() => dispatch(addToCart(data))} />
                                     </div>
                                 )
                             }

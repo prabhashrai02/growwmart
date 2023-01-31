@@ -4,21 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import style from './Navbar.module.css';
 import { getLocalData, setLocalData } from '@/utils/useLocalStorage';
-import { setValue } from '@/Store/slices/counterSlice';
+import { setData } from '@/Store/slices/cartSlice';
+import { CartState } from '@/utils/Types';
 
 const Navbar = () => {
   const dispatch = useDispatch();
 
-  const cartSize = useSelector((state: RootState) => state.cartSize.value);
-  const localCart =  getLocalData("cartSize");
+  const cartSize = useSelector((state: RootState) => state.cart.value);
+  const cart = useSelector((state: RootState) => state.cart);
+  
+  const localCartData = getLocalData("cartState");
 
   useEffect(() => {
-    localCart ? dispatch(setValue(Number(localCart))) :
-    setLocalData<number>("cartSize", cartSize)
+    localCartData ? dispatch(setData(JSON.parse(localCartData))) :
+    setLocalData<CartState>("cartState", cart)
   }, []);
   
   useEffect(() => {
-    setLocalData<number>("cartSize", cartSize)
+    setLocalData<CartState>("cartState", cart)
   }, [cartSize])
 
   return (
@@ -41,9 +44,6 @@ const Navbar = () => {
 
     </div>
   )
-
-
-
 }
 
 export default Navbar;
