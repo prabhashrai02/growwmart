@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './Navbar.module.css';
 import { getLocalData, setLocalData } from '@/utils/useLocalStorage';
 import { setData } from '@/Store/slices/cartSlice';
-import { CartState } from '@/utils/Types';
+import { CartState } from '@/UI/CartPage/Types';
 
 const Navbar = () => {
   const dispatch = useDispatch();

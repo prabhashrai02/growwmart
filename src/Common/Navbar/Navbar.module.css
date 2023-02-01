@@ -3,25 +3,28 @@
     display: flex;
     position: fixed;
     padding: 1.5rem;
-    height: 8%;
+    height: 6%;
     top: 0%;
     left: 0%;
     width: 100vw;
     z-index: 1;
     justify-content: space-between;
     align-items: center;
+
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
 }
 
 .navbar45Left {
     display: flex;
-    height: 4rem;
+    height: 2.5rem;
 }
 
 .navbar23Heading {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 0.2rem;
+    margin-left: 0.5rem;
     font-size: x-large;
 }
 
@@ -35,7 +38,8 @@
 .navbar85Input {
     width: 100%;
     line-height: 2rem;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
+    border-color: grey;
 }
 
 .navbar44Right {
@@ -46,8 +50,9 @@
 }
 
 .navbar90Cart {
-    margin-top: -1.3rem;
-    margin-left: -0.8rem;
+    margin-top: -0.8rem;
+    margin-left: -0.6rem;
+    height: 2.2rem;
 }
 
 .navbar75CartItems {
@@ -55,8 +60,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.7rem;
+    height: 1.7rem;
     border-radius: 50%;
     background-color: var(--cart-items);
 }
@@ -65,5 +70,15 @@
 @media (max-width: 768px) {
     .navbar32Bar {
         padding: 0.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .navbar23Heading {
+        display: none;
+    }
+
+    .navbar98Center {
+        width: 60%;
     }
 }
