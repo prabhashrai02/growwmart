@@ -1,0 +1,24 @@
+.card09Rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card39RatingStar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-rating-background);
+    color: var(--card-rating-color);
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    font-size: smaller;
+}
+
+.card09Rating img {
+    height: 1rem;
+}
+
+.card43RatingCount {
+    margin-left: 0.5rem;
+}
