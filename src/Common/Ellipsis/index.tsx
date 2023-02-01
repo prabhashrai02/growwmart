@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EllipsisProps } from '@/utils/Types';
+import { EllipsisProps } from './Types';
 
 import style from './Ellipsis.module.css';
 
