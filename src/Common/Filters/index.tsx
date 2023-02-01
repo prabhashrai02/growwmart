@@ -40,7 +40,7 @@ const Filters = () => {
       <div className={style.filters34PriceFilter}>
         <h3> Price Filter </h3>
         <input type='range' className={style.filters32PriceRange} onChange={takeValue} step={10} min={10} value={price / 10} />
-        <h5>{price}</h5>
+        <h5>&#x20b9; {price}</h5>
       </div>
     </div>
   )

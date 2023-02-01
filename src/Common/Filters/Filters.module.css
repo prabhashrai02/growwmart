@@ -4,7 +4,7 @@
     justify-content: center;
     height: 100vh;
     position: fixed;
-    width: 30%;
+    width: 15%;
     padding: 0 2rem;
 }
 
@@ -18,7 +18,7 @@
     margin: 1rem 0;
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .filters56Categories {
@@ -38,5 +38,40 @@
 }
 .filters32PriceRange {
     margin: 1rem 0;
-    width: 80%;
+    width: 100%;
+}
+
+
+@media (max-width: 1024px) {
+    .filters76Sidebar {
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    .filters76Sidebar {
+        flex-direction: row;
+        width: 100%;
+        position: relative;
+        height: max-content;
+        justify-content: space-between;
+    }
+    
+    .filters65Sort {
+        width: 22%;
+    }
+
+    .sort91Radios {
+        flex-direction: column;
+    }
+
+    .filters56Categories {
+        margin: 0;
+        width: 33%;
+    }
+
+    .filters34PriceFilter {
+        width: 33%;
+        margin: 0;
+    }
 }
