@@ -1,10 +1,4 @@
-import { Product } from "@/Common/Card/Types";
-
-export type CartState = {
-    value: number;
-    products: CartList[];
-    totalCost: number;
-}
+import { Product } from "@/UI/ProductPage/Types";
 
 export type CartList = {
     product: Product,
