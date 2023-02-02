@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CartState, Product } from '@/utils/Types'
+import { Product } from '@/UI/ProductPage/Types';
+import { CartState } from './Types';
 
 const initialState: CartState = {
-  value: 0,
-  products: [],
+  cartProducts: [],
   totalCost: 0,
 }
 
@@ -12,31 +12,36 @@ export const cart = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<Product>) => {
-      const itemInCart = state.products.find(item => item.product.id === action.payload.id);
+      const itemInCart = state.cartProducts.find(item => item.product.id === action.payload.id);
       if (itemInCart) {
         itemInCart.quantity++;
       }
       else {
-        state.products.push({product: action.payload, quantity: 1});
+        state.cartProducts.push({ product: action.payload, quantity: 1 });
       }
-
-      let total: number = 0;
-      state.products.forEach(product => {
-        total += product.quantity;
-      })
-
-      state.value = total;
 
       state.totalCost += action.payload.price;
     },
-    setData: (state, action: PayloadAction<CartState>) => {
-      state.value = action.payload.value;
-      state.products = action.payload.products;
+    setDataFromLocal: (state, action: PayloadAction<CartState>) => {
+      state.cartProducts = action.payload.cartProducts;
       state.totalCost = action.payload.totalCost;
-    }
+    },
+    removeItem: (state, action: PayloadAction<Product>) => {
+
+      const itemInCart = state.cartProducts.find(item => item.product.id === action.payload.id);
+
+      state.cartProducts = state.cartProducts.filter((item) => item !== itemInCart);
+
+      let totalCost: number = 0;
+      state.cartProducts.forEach(item => {
+        totalCost += item.product.price;
+      })
+
+      state.totalCost = totalCost;
+    },
   }
 })
 
-export const { addToCart, setData } = cart.actions
+export const { addToCart, setDataFromLocal, removeItem } = cart.actions
 
 export default cart.reducer

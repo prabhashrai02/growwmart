@@ -1,10 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './slices/cartSlice';
+import cartReducer from './slices/cartSlice';
+import wishReducer from './slices/wishSlice';
+import productReducer from './slices/productSlice';
 
 export const store = configureStore({
-    reducer: {
-        cart: counterReducer,
-    }
+  reducer: {
+    cart: cartReducer,
+    wish: wishReducer,
+    product: productReducer,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 })
 
 export type RootState = ReturnType<typeof store.getState>;
