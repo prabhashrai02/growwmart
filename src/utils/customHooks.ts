@@ -1,16 +1,25 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { Product } from "./Types";
+import { Product } from "@/UI/ProductPage/Types";
+import { getLocalData, setLocalData } from "./useLocalStorage";
 
 export const useProductArray = () => {
-
   const [productArray, setProductArray] = useState<Product[]>([]);
   
   const fetchAllData = async () => {
-    const result = await fetch('https://fakestoreapi.com/products/')
-    const data = await result.json();
+    const preFetchedData = (getLocalData("allproducts"));
+    const oldData = preFetchedData ? JSON.parse(preFetchedData) : "";
 
-    setProductArray(data);
+    if (preFetchedData) {
+      setProductArray(oldData);
+    }
+    else {
+      const result = await fetch('https://fakestoreapi.com/products/')
+      const data = await result.json();
+      setProductArray(data);
+      setLocalData<Product[]>("allproducts", data);
+    }
+
   }
 
   useEffect(() => {
@@ -54,13 +63,23 @@ export const useFilters = () => {
   const [price, setPrice] = useState<number>(200);
 
   const fetchCategories = async () => {
+    try {
     const response = await fetch('https://fakestoreapi.com/products/categories');
     const data = await response.json();
     setCategories(data);
+    }
+    catch(e){
+      console.log(e)
+    } 
   }
 
   useEffect(() => {
-    fetchCategories();
+    try {
+      fetchCategories();
+    }
+    catch(e){
+      console.log(e)
+    } 
   }, []);
 
   return {
