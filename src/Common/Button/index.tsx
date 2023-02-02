@@ -1,5 +1,5 @@
-import { ButtonProps } from '@/utils/Types';
-import React from 'react'
+import { ButtonProps } from './Types';
+import React from 'react';
 
 const Button = (props: ButtonProps) => {
     const value = props.value;
