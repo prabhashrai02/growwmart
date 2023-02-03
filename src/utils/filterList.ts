@@ -10,9 +10,9 @@ export const filterProductList = (productList: Product[], filterData: FilterData
     const maxPrice = filterData.priceFilter;
     const searchValue = String(filterData.searchValue);
 
-    if (categories) showList = filterCategories(categories, showList, productList);
+    if (categories?.size) showList = filterCategories(categories, showList, productList);
 
-    if (maxPrice) showList = filterMaxPrice(maxPrice, showList);
+    if (maxPrice !== undefined) showList = filterMaxPrice(maxPrice, showList);
 
     showList = filterSort(sort, showList);
 
@@ -23,21 +23,17 @@ export const filterProductList = (productList: Product[], filterData: FilterData
 
 const filterCategories = (categories: Set<FormDataEntryValue>, showList: Product[], productList: Product[]) => {
 
-    if (categories?.size) {
-        showList = productList.filter(item => {
-            return categories.has(item.category);
-        });
-    }
+    showList = productList.filter(item => {
+        return categories.has(item.category);
+    });
 
     return showList;
 }
 
 const filterMaxPrice = (maxPrice: number, showList: Product[]): Product[] => {
-    if (maxPrice !== undefined) {
-        showList = showList?.filter(item => {
-            return item.price <= maxPrice;
-        })
-    }
+    showList = showList?.filter(item => {
+        return item.price <= maxPrice;
+    })
 
     return showList;
 }
