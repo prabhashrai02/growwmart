@@ -1,10 +1,13 @@
 .card54Product {
     box-shadow: var(--box-shadow);
     width: 25rem;
+    max-width: 90vw;
     margin-bottom: 1rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
+    margin: 0.5rem 0.5rem;
+    background-color: var(--light-background);
 }
 
 .card54Product:hover {
@@ -12,7 +15,9 @@
 }
 
 .card75Product {
-    width: 100%;
+    box-shadow: none;
+    margin-top: 2rem;
+    width: 80%;
     margin-bottom: 0;
     cursor: default;
     display: flex;
@@ -20,6 +25,20 @@
 }
 
 .card75Product:hover {
+    scale: 1;
+}
+
+.card77Product {
+    box-shadow: none;
+    width: 100%;
+    margin-bottom: 0;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    scale: 1;
+}
+
+.card77Product:hover {
     scale: 1;
 }
 
@@ -31,7 +50,23 @@
 
 .card45ProductDetails {
     flex-direction: row;
-    width: 60rem;
+}
+
+.card44ProductDetails {
+    flex-direction: row;
+    width: 80rem;
+}
+
+.card12ProductImageButtons {
+    min-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card12ProductImageButtons img {
+    object-fit: contain;
+    height: 29rem !important;
 }
 
 .card23ProductDetails img {
@@ -43,37 +78,36 @@
     text-align: center;
 }
 
-.card09Rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card39RatingStar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--card-rating-background);
-    color: var(--card-rating-color);
-    padding: 0.2rem;
-    border-radius: 0.2rem;
-}
-
-.card09Rating img {
-    height: 1rem;
-}
-
-.card98Buttons {
-    margin-top: 5rem;
-    width: 100%;
+.card98ProductPriceRating {
+    margin-top: 0.8rem;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
-.card78AddToCart {
-    padding: 1rem;
+.cart78ProductPrice {
+    font-size: large;
 }
 
-.card54BuyNow { 
-    padding: 1rem;
+.card67ProductDescription {
+    margin-left: 5rem;
+}
+
+@media (max-width: 768px) {
+
+    .card45ProductDetails {
+        flex-direction: column;
+    }
+    
+    .card45ProductDetails img {
+        height: 100%;
+    }
+    
+    .card67ProductDescription {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 425px) {
+
 }

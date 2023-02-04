@@ -4,15 +4,15 @@ import Ellipsis from '../../Ellipsis';
 import style from './CardTitle.module.css';
 
 const CardTitle = (props: TitleProps) => {
-    const productPage = props.check;
+    const check = props.check;
     const title = props.title;
 
     return (
         <div className={style.card45CardTitle}>
             {
-                productPage ? (
+                check ? (
 
-                    <h3> {title} </h3>
+                    <h1> {title} </h1>
                 )
                     :
                     (
