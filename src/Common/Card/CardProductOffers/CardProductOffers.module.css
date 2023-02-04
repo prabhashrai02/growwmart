@@ -1,0 +1,42 @@
+.offer12Text {
+    font-weight: 900;
+}
+
+.offer23OfferCard {
+    background-color: var(--brand);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem;
+}
+
+.offer12Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.offer12Icon img {
+    height: 2rem;
+}
+
+.offer45BreakLine {
+    border: 0.05rem solid grey;
+    width: 90%;
+}
+
+.offer23OfferCard h3 {
+    line-height: 3.5rem;
+}
+.offer23OfferCard pre {
+    line-height: 2rem;
+}
+
+.offer54Coupon {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    width: max-content;
+    background-color: var(--background);
+}
