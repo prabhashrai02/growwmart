@@ -94,6 +94,9 @@
 }
 
 @media (max-width: 768px) {
+    .card54Product:hover {
+        scale: 1;
+    }
 
     .card45ProductDetails {
         flex-direction: column;
@@ -109,5 +112,7 @@
 }
 
 @media (max-width: 425px) {
-
+    .card54Product:hover {
+        scale: 1;
+    }
 }

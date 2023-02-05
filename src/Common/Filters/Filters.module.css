@@ -51,34 +51,26 @@
 
 @media (max-width: 1024px) {
     .filters76Sidebar {
-        width: 30%;
+        width: 20rem;
     }
 }
 
 @media (max-width: 768px) {
     .filters76Sidebar {
-        flex-direction: row;
         width: 100%;
         position: relative;
         height: max-content;
         justify-content: space-between;
     }
-    
-    .filters65Sort {
-        width: 20%;
-    }
+}
 
-    .sort91Radios {
-        flex-direction: column;
-    }
+.filters65Buttons {
+  background-color: var(--brand);
+  border: var(--brand);
+  box-shadow: var(--box-shadow);
+}
 
-    .filters56Categories {
-        margin: 0;
-        width: 33%;
-    }
-
-    .filters34PriceFilter {
-        width: 33%;
-        margin: 0;
-    }
+.filters65Buttons:hover {
+    cursor: pointer;
+    background: transparent;
 }
