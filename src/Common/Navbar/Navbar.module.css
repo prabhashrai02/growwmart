@@ -7,9 +7,12 @@
     top: 0%;
     left: 0%;
     width: 100vw;
+    padding: 0 5vw;
     z-index: 1;
     justify-content: space-between;
     align-items: center;
+
+    background-color: var(--light-background);
 
     -webkit-backdrop-filter: blur(1rem);
     backdrop-filter: blur(1rem);
@@ -69,7 +72,7 @@
 
 @media (max-width: 768px) {
     .navbar32Bar {
-        padding: 0.5rem;
+        padding: 0.5rem 5vw;
     }
 }
 
