@@ -1,4 +1,5 @@
 export type TitleProps = {
-    check: boolean | undefined;
+    productPage: boolean | undefined;
+    cartPage: boolean | undefined;
     title: string;
 }

@@ -4,23 +4,18 @@ import Ellipsis from '../../Ellipsis';
 import style from './CardTitle.module.css';
 
 const CardTitle = (props: TitleProps) => {
-    const check = props.check;
+    const productPage = props.productPage;
+    const cartPage = props.cartPage;
     const title = props.title;
 
     return (
         <div className={style.card45CardTitle}>
             {
-                check ? (
-
-                    <h1> {title} </h1>
-                )
-                    :
-                    (
-                        <h3><Ellipsis text={title} size={25} /></h3>
-                    )
+                (productPage) ? <h1> {title} </h1>
+                    : (cartPage) ? <h3> {title} </h3>
+                        : <h3><Ellipsis text={title} size={25} /></h3>
             }
-
-        </div>
+        </div >
     )
 }
 

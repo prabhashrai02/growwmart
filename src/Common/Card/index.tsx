@@ -44,7 +44,7 @@ const Card = (props: CardProps) => {
                         </div>
 
                         <div className={`${style.card23ProductDescription} ${modifyProductDetail}`}>
-                            <CardTitle check={productPage || cartPage} title={data.title} />
+                            <CardTitle productPage={productPage} cartPage={cartPage} title={data.title} />
                             <p>{data.category}</p>
                             <div className={style.card98ProductPriceRating}>
                                 <span className={style.cart78ProductPrice}><h4>&#x20b9; {data.price}</h4></span>
