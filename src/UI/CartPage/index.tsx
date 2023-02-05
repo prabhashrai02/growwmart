@@ -21,7 +21,7 @@ const CartPage = () => {
                 {
                     cartSize ?
                     cartProduct.map((item, index): ReactNode => {
-                        return <Card cartData={true} data={item.product} quantity={item.quantity} key={index} />;
+                        return <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />;
                     })
                     :
                     <CartEmpty />

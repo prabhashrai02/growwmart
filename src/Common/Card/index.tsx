@@ -1,6 +1,7 @@
 import { CardProps } from './Types';
 
 import React from 'react';
+import Image from 'next/image';
 
 import style from './Card.module.css';
 import CardTitle from './CardTitle';
@@ -13,13 +14,9 @@ import CardBookmark from './CardBookmark';
 import CardProductOffers from './CardProductOffers';
 
 const Card = (props: CardProps) => {
+    const { data, cartPage, productPage, quantity, showDescription } = props;
 
-    const data = props.data;
-    const cartPage = props.cartData;
-    const productPage = props.productPage;
-    const quantity = props.quantity;
-    const showDesc = props.showDescription;
-
+    const imageURL = `${data?.image}`;
 
     const modifyCardProductStyle = productPage ? `${style.card75Product}` : cartPage ? `${style.card77Product}` : "";
 
@@ -36,11 +33,13 @@ const Card = (props: CardProps) => {
             data && (
                 <Link href={productURL}>
                     <div className={`${style.card23ProductDetails} ${modifyCardAlignment}`}>
-                        <CardBookmark data={data} />
+                        <div>
+                            <CardBookmark data={data} />
 
-                        <div className={`${style.card89ImageHolder} ${cardProductWithButton}`}>
-                            <img src={data.image} />
-                            <CardButtons check={productPage} data={data} />
+                            <div className={`${style.card89ImageHolder} ${cardProductWithButton}`}>
+                                <Image loader={() => imageURL} src={imageURL} alt={data.title} width={100} height={100} />
+                                <CardButtons check={productPage} data={data} />
+                            </div>
                         </div>
 
                         <div className={`${style.card23ProductDescription} ${modifyProductDetail}`}>
@@ -50,7 +49,7 @@ const Card = (props: CardProps) => {
                                 <span className={style.cart78ProductPrice}><h4>&#x20b9; {data.price}</h4></span>
                                 <CardRating data={data.rating} />
                             </div>
-                            <CardDesc check={showDesc} data={data.description} />
+                            <CardDesc check={showDescription} data={data.description} />
                             <CardProductOffers check={productPage} />
                             <CardCartData check={cartPage} quantity={quantity} data={data} />
                         </div>
