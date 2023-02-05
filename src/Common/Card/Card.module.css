@@ -93,6 +93,12 @@
     margin-left: 5rem;
 }
 
+.card89ImageHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 768px) {
     .card54Product:hover {
         scale: 1;

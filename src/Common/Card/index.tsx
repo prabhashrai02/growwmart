@@ -38,7 +38,7 @@ const Card = (props: CardProps) => {
                     <div className={`${style.card23ProductDetails} ${modifyCardAlignment}`}>
                         <CardBookmark data={data} />
 
-                        <div className={`${cardProductWithButton}`}>
+                        <div className={`${style.card89ImageHolder} ${cardProductWithButton}`}>
                             <img src={data.image} />
                             <CardButtons check={productPage} data={data} />
                         </div>
@@ -47,7 +47,7 @@ const Card = (props: CardProps) => {
                             <CardTitle check={productPage || cartPage} title={data.title} />
                             <p>{data.category}</p>
                             <div className={style.card98ProductPriceRating}>
-                                <span className={style.cart78ProductPrice}><h3>&#x20b9; {data.price}</h3></span>
+                                <span className={style.cart78ProductPrice}><h4>&#x20b9; {data.price}</h4></span>
                                 <CardRating data={data.rating} />
                             </div>
                             <CardDesc check={showDesc} data={data.description} />

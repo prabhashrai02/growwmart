@@ -1,5 +1,5 @@
 .offer12Text {
-    font-weight: 900;
+    /* font-weight: 900; */
 }
 
 .offer23OfferCard {
@@ -27,15 +27,24 @@
     width: 90%;
 }
 
-.offer23OfferCard h3 {
+.offer23OfferCard p {
     line-height: 3.5rem;
 }
+
+.offer23OfferCard h2 {
+    line-height: 3.5rem;
+}
+
+.offer23OfferCard h4 {
+    line-height: 3.5rem;
+}
+
 .offer23OfferCard pre {
     line-height: 2rem;
 }
 
 .offer54Coupon {
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     margin-bottom: 1rem;
     width: max-content;
     background-color: var(--background);

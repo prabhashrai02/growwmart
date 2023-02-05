@@ -16,7 +16,7 @@ const CardTitle = (props: TitleProps) => {
                 )
                     :
                     (
-                        <h3><Ellipsis text={title} size={35} /></h3>
+                        <h3><Ellipsis text={title} size={25} /></h3>
                     )
             }
 

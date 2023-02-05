@@ -16,9 +16,9 @@ const CardProductOffers = (props: CardProductOfferProps) => {
           <div className={style.offer12Icon}>
             <img src={offer.src} />
             <div>
-              <h3>
+              <p>
                 Valentine's Sale 3rd-15th Feb: 25% off on orders ₹1099+.
-              </h3>
+              </p>
             </div>
           </div>
               <h3 className={style.offer54Coupon}>
@@ -26,19 +26,19 @@ const CardProductOffers = (props: CardProductOfferProps) => {
               </h3>
           <div className={style.offer45BreakLine} />
 
-          <h3>
+          <h4>
             Easy Replacement
-          </h3>
+          </h4>
 
           <div className={style.offer45BreakLine} />
-          <h3>
+          <h4>
             Free Fast Shipping
-          </h3>
+          </h4>
           <div className={style.offer45BreakLine} />
 
-          <h3>
+          <h4>
             2,00,000+ Happy Customers
-          </h3>
+          </h4>
 
         </div>
       }
