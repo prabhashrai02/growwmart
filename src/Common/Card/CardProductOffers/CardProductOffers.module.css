@@ -44,6 +44,7 @@
 }
 
 .offer54Coupon {
+    box-shadow: var(--box-shadow);
     padding: 1rem 1rem;
     margin-bottom: 1rem;
     width: max-content;
