@@ -1,11 +1,11 @@
 import Button from '@/Common/Button';
-import { addToCart } from '@/Store/slices/cartSlice';
+import { addToCart, addGivenQuantity } from '@/Store/slices/cartSlice';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { CardButtonProps } from './Types';
 import style from './CardButtons.module.css';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { AddGivenQuantity } from '@/Store/slices/Types';
 
 const CardButtons = (props: CardButtonProps) => {
     const dispatch = useDispatch();
@@ -32,6 +32,15 @@ const CardButtons = (props: CardButtonProps) => {
         event.preventDefault();
     }
 
+    const addQuantity = () => {
+        const addGiven: AddGivenQuantity = {
+            product: data,
+            quantity: quantity
+        };
+
+        dispatch(addGivenQuantity(addGiven));
+    }
+
     const buyNow = () => {
         const cartURL = '../cart';
         router.push(cartURL)
@@ -48,7 +57,7 @@ const CardButtons = (props: CardButtonProps) => {
                             <input type='number' value={quantity} onChange={(event) => handleQuantity(event)} className={style.card43inputQuantity} />
                         </div>
                         <div className={style.card98Buttons} onClick={(e) => handelClick(e)}>
-                            <Button value='Add to Cart' className={style.card78AddToCart} func={() => dispatch(addToCart(data))} />
+                            <Button value='Add to Cart' className={style.card78AddToCart} func={() => addQuantity()} />
                             <Button value='Buy Now' className={style.card54BuyNow} func={() => buyNow()} />
                         </div>
                     </div>

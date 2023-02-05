@@ -15,7 +15,7 @@ export type ProductState = {
     showList: Product[]
 }
 
-export type AddToCart = {
+export type AddGivenQuantity = {
     product: Product,
     quantity: number,
 }
