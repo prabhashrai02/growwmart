@@ -1,5 +1,12 @@
 .cart46CartQuantity {
     display: flex;
-    justify-content: space-between;
-    height: 10rem;
+    justify-content: center;
+    margin: 3rem 0;
+    align-items: center;
+}
+
+.cart46CartQuantity img {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0 1rem;
 }
