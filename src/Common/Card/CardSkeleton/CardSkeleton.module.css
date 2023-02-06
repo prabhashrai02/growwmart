@@ -1,0 +1,74 @@
+.card23Skeleton {
+    width: 25rem;
+    margin: 1rem 0.6rem;
+    padding: 1rem 0;
+    background-color: var(--light-background);
+}
+
+.skeleton_loader_background {
+    height: 1rem;
+    width: 23rem;
+    margin: 1rem 1rem;
+    display: block;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 80%
+      ),
+      lightgray;
+    background-repeat: repeat-y;
+    background-size: 50px 500px;
+    background-position: 0 0;
+    animation: shine 1s infinite;
+}
+
+.skeleton34Product {
+    display: flex;
+}
+
+.skeleton23Image {
+    height: 20rem;
+}
+
+.skeleton12Small {
+    width: 10rem;
+}
+
+.skeleton34cardButtons {
+    display: flex;
+}
+
+.skeleton34ImageSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skeleton23ProductDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-left: 3rem;
+}
+
+@keyframes shine {
+    to {
+      background-position: 100% 0, 0 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .skeleton34Product {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .skeleton23ProductDescription {
+        margin: 0;
+    }
+}

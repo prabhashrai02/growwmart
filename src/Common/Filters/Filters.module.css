@@ -93,8 +93,8 @@
     animation: shine 1s infinite;
 }
 
-  @keyframes shine {
+@keyframes shine {
     to {
       background-position: 100% 0, 0 0;
     }
-  }
+}
