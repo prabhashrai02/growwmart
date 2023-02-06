@@ -12,8 +12,7 @@ const CardButtons = (props: CardButtonProps) => {
     const router = useRouter();
 
     const [quantity, setQuantity] = useState(1);
-    const check = props.check;
-    const data = props.data;
+    const { check, data } = props;
 
     const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredNumber = Number(event.currentTarget.value);
