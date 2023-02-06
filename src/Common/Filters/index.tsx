@@ -2,7 +2,7 @@ import { updateShowList } from '@/Store/slices/productSlice';
 import { RootState } from '@/Store/store';
 import { useFilters } from '@/utils/customHooks';
 import { useRouter } from 'next/router';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { InputHTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Filters.module.css';
 import { FilterData } from './Types';
@@ -66,8 +66,9 @@ const Filters = () => {
 
   const dispatch = useDispatch();
 
-  const takeValue = (event: any) => {
-    setPrice(event.currentTarget.value * 10);
+  const takeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.currentTarget.value);
+    value && setPrice(value * 10);
   }
 
   const resetFilter = () => {
@@ -146,7 +147,7 @@ const Filters = () => {
 
         <div className={style.filters34PriceFilter}>
           <h3> Price Filter </h3>
-          <input type='range' className={style.filters32PriceRange} onChange={takeValue} value={price / 10} />
+          <input type='range' className={style.filters32PriceRange} onChange={(event) => takeValue(event)} value={price / 10} />
           <h5>&#x20b9; {price}</h5>
         </div>
 
