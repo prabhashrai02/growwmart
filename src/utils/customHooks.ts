@@ -30,7 +30,7 @@ export const useLocalData = () => {
     setLocalData<CartState>("cartState", cart)
     setLocalData<Product[]>("wishList", wish.wishList)
 
-  }, [cartSize])
+  }, [cart])
   
   useEffect(() => {
     setLocalData<Product[]>("wishList", wish.wishList)
