@@ -2,7 +2,7 @@ import { updateSearchValue, updateShowList } from '@/Store/slices/productSlice';
 import { RootState } from '@/Store/store';
 import { useFilters } from '@/utils/customHooks';
 import { useRouter } from 'next/router';
-import React, { InputHTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Filters.module.css';
 import { FilterData } from './Types';
@@ -20,6 +20,8 @@ const Filters = () => {
   const [categoriesSet, setCategoriesSet] = useState<Set<FormDataEntryValue>>();
 
 
+  const skeletonArray = [1, 2, 3, 4];
+
   const searchQuery = useSelector((state: RootState) => state.product.searchValue);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const Filters = () => {
   }, [searchQuery]);
 
   useEffect(() => {
-    const searchValueLength = value? value.length : 0;
+    const searchValueLength = value ? value.length : 0;
     value && setSearchValue(JSON.stringify(value).substring(1, 1 + searchValueLength));
 
     const sortLength = sort ? sort.length : 0;
@@ -142,9 +144,14 @@ const Filters = () => {
           <div className={style.filters23AllCategories}>
 
             {
-              categories.map((category, index): ReactNode => {
-                return <li key={index}> <input type='checkbox' name='category' value={category} /> {category} </li>
-              })
+              categories.length ?
+                categories.map((category, index): ReactNode => {
+                  return <li key={index}> <input type='checkbox' name='category' value={category} /> {category} </li>
+                })
+                :
+                skeletonArray.map((): ReactNode => {
+                  return <span className={style.skeleton_loader_background}></span>
+                })
             }
           </div>
         </div>
