@@ -8,12 +8,10 @@ import Image from 'next/image';
 import add from '@/Assets/plus.svg';
 import minus from '@/Assets/minus.svg';
 
-const CardCartData = (props: CardCartDataProps) => {
+const CardCartQuantity = (props: CardCartDataProps) => {
     const dispatch = useDispatch();
 
-    const cartPage = props.check;
-    const quantity = props.quantity;
-    const data = props.data;
+    const { check, quantity, data} = props;
 
     const handelClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         event.preventDefault();
@@ -22,7 +20,7 @@ const CardCartData = (props: CardCartDataProps) => {
     return (
         <div>
             {
-                cartPage && (
+                check && (
                     <div onClick={(event) => handelClick(event)}>
                         <div className={style.cart46CartQuantity}>
                             <Image src={add} alt='add more quantity' />
@@ -38,4 +36,4 @@ const CardCartData = (props: CardCartDataProps) => {
     )
 }
 
-export default CardCartData;
+export default CardCartQuantity;
