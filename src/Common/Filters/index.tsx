@@ -1,7 +1,7 @@
 import { updateShowList } from '@/Store/slices/productSlice';
 import { useFilters } from '@/utils/customHooks';
 import { useRouter } from 'next/router';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import style from './Filters.module.css';
 import { FilterData } from './Types';
@@ -9,15 +9,57 @@ import { FilterData } from './Types';
 
 const Filters = () => {
 
-  const { categories, price, setPrice } = useFilters();
-  const { query } = useRouter();
+  const { categories, setCategories, price, setPrice } = useFilters();
+  const router = useRouter();
+
+  const { value , sort, selectCategories, priceFilter} = router.query;
+
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [sortValue, setSortValue] = useState<string>('');
+  const [categoriesSet, setCategoriesSet] = useState<Set<FormDataEntryValue>>();
+
+  useEffect(() => {
+    value && setSearchValue(JSON.stringify(value));
+
+    const sortLength = sort? sort.length : 0;
+    const sortBy = sort ? JSON.stringify(sort).substring(1, 1+sortLength) : '';
+    
+    const categories = JSON.stringify(selectCategories);
+    const catArray = categories && categories.substring(1, categories.length - 1).split(',').filter((ele) => ele);
+    const filterCategory: Set<FormDataEntryValue> = categories ? new Set([...catArray]) : new Set();
+    const urlPrice = Number(priceFilter);
+
+    const entries: string[] = [];
+
+    filterCategory.forEach((item) => {
+      entries.push(item.toString());
+    })
+
+    setSortValue(sortBy);
+    urlPrice ? setPrice(urlPrice) : setPrice(1000);
+    setCategories(entries);
+    setCategoriesSet(filterCategory);
+    
+  },[router.query])
+  
+  useEffect(() => {
+    const filter: FilterData = {
+      sort: sortValue,
+      selectCategory: categoriesSet,
+      priceFilter: price,
+      searchValue: searchValue
+    }
+
+    dispatch(updateShowList(filter));
+
+  }, [price, categories, searchValue, sortValue])
+
 
   const dispatch = useDispatch();
 
   const takeValue = (event: any) => {
     setPrice(event.currentTarget.value * 10);
   }
-
 
   const resetFilter = () => {
 
@@ -30,7 +72,8 @@ const Filters = () => {
     const filter: FilterData = {
       priceFilter: 1000,
       sort: sort,
-      selectCategory: filterCategory
+      selectCategory: filterCategory,
+      searchValue: searchValue,
     }
 
     dispatch(updateShowList(filter));
@@ -42,15 +85,11 @@ const Filters = () => {
     const target = new FormData(event.currentTarget);
 
     const filterCategory: Set<FormDataEntryValue> = new Set(target.getAll('category'));
-    const sort = target.get('sort');
+    const sort = String(target.get('sort'));
 
-    const filter: FilterData = {
-      priceFilter: price,
-      sort: sort,
-      selectCategory: filterCategory
-    }
-
-    dispatch(updateShowList(filter));
+    const categoriesFilter = JSON.stringify([...filterCategory].join(','));
+    const urlFilter = categoriesFilter.substring(1, categoriesFilter.length - 1);
+    router.push(`search?value=${searchValue}&sort=${sort}&selectCategories=${urlFilter}&priceFilter=${price}`)
   }
 
   return (
