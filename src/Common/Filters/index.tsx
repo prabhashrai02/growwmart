@@ -1,8 +1,9 @@
 import { updateShowList } from '@/Store/slices/productSlice';
+import { RootState } from '@/Store/store';
 import { useFilters } from '@/utils/customHooks';
 import { useRouter } from 'next/router';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './Filters.module.css';
 import { FilterData } from './Types';
 
@@ -12,18 +13,26 @@ const Filters = () => {
   const { categories, setCategories, price, setPrice } = useFilters();
   const router = useRouter();
 
-  const { value , sort, selectCategories, priceFilter} = router.query;
+  const { value, sort, selectCategories, priceFilter } = router.query;
 
   const [searchValue, setSearchValue] = useState<string>('');
   const [sortValue, setSortValue] = useState<string>('');
   const [categoriesSet, setCategoriesSet] = useState<Set<FormDataEntryValue>>();
 
-  useEffect(() => {
-    value && setSearchValue(JSON.stringify(value));
 
-    const sortLength = sort? sort.length : 0;
-    const sortBy = sort ? JSON.stringify(sort).substring(1, 1+sortLength) : '';
-    
+  const searchQuery = useSelector((state: RootState) => state.product.searchValue);
+
+  useEffect(() => {
+    setSearchValue(searchQuery);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    const searchValueLength = value? value.length : 0;
+    value && setSearchValue(JSON.stringify(value).substring(1, 1 + searchValueLength));
+
+    const sortLength = sort ? sort.length : 0;
+    const sortBy = sort ? JSON.stringify(sort).substring(1, 1 + sortLength) : '';
+
     const categories = JSON.stringify(selectCategories);
     const catArray = categories && categories.substring(1, categories.length - 1).split(',').filter((ele) => ele);
     const filterCategory: Set<FormDataEntryValue> = categories ? new Set([...catArray]) : new Set();
@@ -39,9 +48,9 @@ const Filters = () => {
     urlPrice ? setPrice(urlPrice) : setPrice(1000);
     setCategories(entries);
     setCategoriesSet(filterCategory);
-    
-  },[router.query])
-  
+
+  }, [router.query])
+
   useEffect(() => {
     const filter: FilterData = {
       sort: sortValue,
@@ -101,7 +110,7 @@ const Filters = () => {
         </div>
         <div className={style.filters65Sort}>
           <h3><label>Sort</label></h3>
-          
+
           <h4 className={style.filters31SortType}><label>By Name</label></h4>
           <div className={style.sort91Radios}>
             <div>

@@ -1,19 +1,38 @@
-import { RootState } from '../../Store/store';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 import style from './Navbar.module.css';
-import { getLocalData, setLocalData } from '@/utils/useLocalStorage';
-import { setDataFromLocal } from '@/Store/slices/cartSlice';
-import { setWishList } from '@/Store/slices/wishSlice';
 
 import Link from 'next/link';
 import { useLocalData } from '@/utils/customHooks';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/Store/store';
+import { updateSearchValue } from '@/Store/slices/productSlice';
 
 const Navbar = () => {
+
   const { cartSize } = useLocalData();
 
+  const searchQuery = useSelector((state: RootState) => state.product.searchValue);
+  const dispatch = useDispatch();
+
+  const { query } = useRouter();
+
+  useEffect(() => {
+    query.value && setSearchValue(query.value.toString());
+  }, [query])
+  
+  const [searchValue, setSearchValue] = useState<string>(searchQuery);
+
   const cartURL = `../cart`;
+
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.currentTarget.value);
+  }
+  
+  useEffect(() => {
+    dispatch(updateSearchValue(searchValue));
+  }, [searchValue])
 
   return (
     <div className={style.navbar32Bar}>
@@ -25,7 +44,7 @@ const Navbar = () => {
       </Link>
 
       <div className={style.navbar98Center}>
-        <input type='text' className={style.navbar85Input} placeholder='Search for any Product' />
+        <input type='text' className={style.navbar85Input} value={searchValue} placeholder='Search for any Product' onChange={(event) => handleChangeInput(event)} />
       </div>
 
       <Link href={cartURL}>

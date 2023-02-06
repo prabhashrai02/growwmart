@@ -12,7 +12,8 @@ export type WishState = {
 
 export type ProductState = {
     productList: Product[],
-    showList: Product[]
+    showList: Product[],
+    searchValue: string,
 }
 
 export type AddGivenQuantity = {
