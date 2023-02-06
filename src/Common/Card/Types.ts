@@ -5,5 +5,6 @@ export type CardProps = {
     cartPage?: boolean,
     productPage?: boolean,
     quantity?: number,
-    showDescription?: boolean;
+    showDescription?: boolean,
+    wishList?: boolean,
 }

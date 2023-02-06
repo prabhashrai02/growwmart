@@ -2,11 +2,10 @@
     box-shadow: var(--box-shadow);
     width: 25rem;
     max-width: 90vw;
-    margin-bottom: 1rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
-    margin: 0.5rem 0.5rem;
+    margin: 1rem 0.6rem;
     background-color: var(--light-background);
 }
 
@@ -17,7 +16,7 @@
 .card75Product {
     box-shadow: none;
     margin-top: 2rem;
-    width: 80%;
+    width: 80% !important;
     margin-bottom: 0;
     cursor: default;
     display: flex;
@@ -29,9 +28,9 @@
 }
 
 .card77Product {
-    box-shadow: none;
-    width: 100%;
-    margin-bottom: 0;
+    /* width: 80%; */
+    width: fit-content;
+    /* margin-bottom: 0; */
     cursor: default;
     display: flex;
     justify-content: center;
@@ -54,7 +53,13 @@
 
 .card44ProductDetails {
     flex-direction: row;
-    width: 80rem;
+}
+
+.card44ProductDetails
+.card89ImageHolder img {
+    /* width: 20rem; */
+    height: 20rem;
+    /* max-width: 15rem; */
 }
 
 .card12ProductImageButtons {
@@ -65,13 +70,14 @@
     align-items: center;
 }
 .card12ProductImageButtons img {
-    object-fit: contain;
-    height: 29rem !important;
+    height: 32rem !important;
 }
 
-.card23ProductDetails img {
+.card89ImageHolder img {
     height: 25rem;
+    width: 25rem;
     max-width: 100%;
+    object-fit: contain;
 }
 
 .card23ProductDescription {
@@ -90,7 +96,7 @@
 }
 
 .card67ProductDescription {
-    margin-left: 5rem;
+    width: 30rem;
 }
 
 .card89ImageHolder {
@@ -118,6 +124,19 @@
 }
 
 @media (max-width: 425px) {
+
+    .card44ProductDetails {
+        width: 25rem;
+        flex-direction: column;
+    }
+
+    .card67ProductDescription {
+        width: 25rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
     .card54Product:hover {
         scale: 1;
     }

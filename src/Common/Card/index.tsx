@@ -8,13 +8,15 @@ import CardTitle from './CardTitle';
 import CardButtons from './CardButtons';
 import CardRating from './CardRating';
 import CardDesc from './CardDesc';
-import CardCartData from './CardCartQuantity';
 import Link from 'next/link';
 import CardBookmark from './CardBookmark';
 import CardProductOffers from './CardProductOffers';
+import CardCartQuantity from './CardCartQuantity';
+import CardWishListButton from './CardWishListButton';
 
 const Card = (props: CardProps) => {
-    const { data, cartPage, productPage, quantity, showDescription } = props;
+    const { data, cartPage, productPage, quantity, showDescription, wishList } = props;
+    const showCartData = cartPage && !wishList;
 
     const imageURL = `${data?.image}`;
 
@@ -51,7 +53,8 @@ const Card = (props: CardProps) => {
                             </div>
                             <CardDesc check={showDescription} data={data.description} />
                             <CardProductOffers check={productPage} />
-                            <CardCartData check={cartPage} quantity={quantity} data={data} />
+                            <CardCartQuantity check={showCartData} quantity={quantity} data={data} />
+                            <CardWishListButton check={wishList} data={data} />
                         </div>
 
                     </div>
