@@ -1,9 +1,10 @@
 .wish45EmptyWishList {
-    width: 100%;
+    width: 40rem;
     height: 10rem;
     display: flex;
     text-align: center;
     align-items: center;
+    justify-content: center;
     padding: 1rem;
 
     background-color: var(--light-background);
