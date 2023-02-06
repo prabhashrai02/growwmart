@@ -11,15 +11,9 @@
     padding: 1rem 0.5rem;
 }
 
-.offer12Icon {
+.offer09OfferHead {
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-}
-
-.offer12Icon img {
-    height: 2rem;
 }
 
 .offer45BreakLine {
