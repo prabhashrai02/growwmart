@@ -33,7 +33,7 @@ const CartPage = () => {
                     wishList.map((item, index): ReactNode => {
                         return (
                             <div className={style.cart56WistList}>
-                                <Card productPage={true} data={item} key={index} />
+                                <Card cartPage={true} wishList={true} data={item} key={index} />
                             </div>
                         )
                     })
