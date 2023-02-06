@@ -1,5 +1,5 @@
 import Button from '@/Common/Button';
-import { addToCart, addGivenQuantity } from '@/Store/slices/cartSlice';
+import { addGivenQuantity } from '@/Store/slices/cartSlice';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { CardButtonProps } from './Types';
@@ -41,9 +41,14 @@ const CardButtons = (props: CardButtonProps) => {
     }
 
     const buyNow = () => {
+        const addGiven: AddGivenQuantity = {
+            product: data,
+            quantity: quantity
+        };
+
         const cartURL = '../cart';
         router.push(cartURL)
-        return dispatch(addToCart(data));
+        return dispatch(addGivenQuantity(addGiven));
     }
 
     return (
