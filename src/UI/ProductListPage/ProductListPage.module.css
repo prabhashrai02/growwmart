@@ -1,7 +1,7 @@
 .productlist43page {
     display: flex;
     width: 90vw;
-    margin-top: 7rem;
+    margin-top: 5.5rem;
 }
 
 .product23All {
@@ -9,7 +9,6 @@
     display: flex;
     margin: 0 1rem;
     justify-content: center;
-    background-color: var(--light-background);
 }
 
 .productlist41allProducts {
