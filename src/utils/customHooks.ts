@@ -14,24 +14,24 @@ export const useLocalData = () => {
   const cart = useSelector((state: RootState) => state.cart);
   const wish: WishState = useSelector((state: RootState) => state.wish);
   const cartSize = cart.cartProducts.length;
-  
+
   const localCartData = getLocalData("cartState");
   const localWishList = getLocalData("wishList");
 
   useEffect(() => {
     localCartData ? dispatch(setDataFromLocal(JSON.parse(localCartData))) :
-    setLocalData<CartState>("cartState", cart)
+      setLocalData<CartState>("cartState", cart)
 
     localWishList ? dispatch(setWishList(JSON.parse(localWishList))) :
-    setLocalData<Product[]>("wishList", wish.wishList)
+      setLocalData<Product[]>("wishList", wish.wishList)
   }, []);
-  
+
   useEffect(() => {
     setLocalData<CartState>("cartState", cart)
     setLocalData<Product[]>("wishList", wish.wishList)
 
   }, [cart])
-  
+
   useEffect(() => {
     setLocalData<Product[]>("wishList", wish.wishList)
 
@@ -44,7 +44,7 @@ export const useLocalData = () => {
 
 export const useProductArray = () => {
   const [productArray, setProductArray] = useState<Product[]>([]);
-  
+
   const fetchAllData = async () => {
     const preFetchedData = (getLocalData("allproducts"));
     const oldData = preFetchedData ? JSON.parse(preFetchedData) : "";
@@ -102,26 +102,27 @@ export const useFilters = () => {
 
   const fetchCategories = async () => {
     try {
-    const response = await fetch('https://fakestoreapi.com/products/categories');
-    const data = await response.json();
-    setCategories(data);
+      const response = await fetch('https://fakestoreapi.com/products/categories');
+      const data = await response.json();
+      setCategories(data);
     }
-    catch(e){
+    catch (e) {
       console.log(e)
-    } 
+    }
   }
 
   useEffect(() => {
     try {
       fetchCategories();
     }
-    catch(e){
+    catch (e) {
       console.log(e)
-    } 
+    }
   }, []);
 
   return {
     categories,
+    setCategories,
     price,
     setPrice
   }
