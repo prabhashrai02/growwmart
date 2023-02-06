@@ -107,7 +107,7 @@ const sortByPrice = (sort: string, showList: Product[]) => {
 
 const search = (searchValue: string, showList: Product[]) => {
     if (searchValue) {
-        const searchWord = String(searchValue).trim();
+        const searchWord = String(searchValue).trim().toLowerCase();
         showList = showList?.filter((item) => {
             return item.title.toLowerCase().includes(searchWord) || item.category.toLowerCase().includes(searchWord);
         })

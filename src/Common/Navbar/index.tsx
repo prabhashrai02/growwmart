@@ -20,7 +20,7 @@ const Navbar = () => {
 
   useEffect(() => {
     query.value && setSearchValue(query.value.toString());
-  }, [query])
+  }, [query, searchQuery])
   
   const [searchValue, setSearchValue] = useState<string>(searchQuery);
 

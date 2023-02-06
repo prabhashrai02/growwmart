@@ -1,4 +1,4 @@
-import { updateShowList } from '@/Store/slices/productSlice';
+import { updateSearchValue, updateShowList } from '@/Store/slices/productSlice';
 import { RootState } from '@/Store/store';
 import { useFilters } from '@/utils/customHooks';
 import { useRouter } from 'next/router';
@@ -86,7 +86,11 @@ const Filters = () => {
       searchValue: searchValue,
     }
 
+    dispatch(updateSearchValue(''));
     dispatch(updateShowList(filter));
+
+
+    router.push(`search?value=&sort=${sort}&selectCategories=&priceFilter=${1000}`);
   }
 
   const filterChanges = (event: React.FormEvent<HTMLFormElement>) => {
@@ -99,7 +103,7 @@ const Filters = () => {
 
     const categoriesFilter = JSON.stringify([...filterCategory].join(','));
     const urlFilter = categoriesFilter.substring(1, categoriesFilter.length - 1);
-    router.push(`search?value=${searchValue}&sort=${sort}&selectCategories=${urlFilter}&priceFilter=${price}`)
+    router.push(`search?value=${searchValue}&sort=${sort}&selectCategories=${urlFilter}&priceFilter=${price}`);
   }
 
   return (
