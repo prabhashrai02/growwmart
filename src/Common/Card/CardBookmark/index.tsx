@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import style from './CardBookmark.module.css';
 import { CardBookmarkProps } from './Types';
 
-// import fav from '@/Assets/fav.png';
 import bookmark from '@/Assets/bookmark.svg';
+import Image from 'next/image';
 
 const CardBookmark = (props: CardBookmarkProps) => {
     const data = props.data;
@@ -19,9 +19,7 @@ const CardBookmark = (props: CardBookmarkProps) => {
 
   return (
     <div className={style.card87Bookmark}>
-      <img src={bookmark.src} alt='bookmark' onClick={(event) => bookmarked(event)} />
-      {/* <img src={fav.src} alt='s' onClick={(event) => bookmarked(event)} /> */}
-      
+      <Image src={bookmark} alt='bookmark' onClick={(event) => bookmarked(event)} />
     </div>
   )
 }
