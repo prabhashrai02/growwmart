@@ -3,7 +3,7 @@ import React from 'react';
 import { CardCartDataProps } from './Types';
 import style from './CardCartQuantity.module.css';
 import { useDispatch } from 'react-redux';
-import { removeItem } from '@/Store/slices/cartSlice';
+import { addToCart, decreaseQuantity, removeItem } from '@/Store/slices/cartSlice';
 import Image from 'next/image';
 import add from '@/Assets/plus.svg';
 import minus from '@/Assets/minus.svg';
@@ -17,15 +17,25 @@ const CardCartQuantity = (props: CardCartDataProps) => {
         event.preventDefault();
     }
 
+    const handleAdd = () => {
+        dispatch(addToCart(data));
+    }
+
+    const handleRemove = () => {
+        if (quantity && quantity > 1) dispatch(decreaseQuantity(data));
+        else dispatch(removeItem(data));
+    }
+
+
     return (
         <div>
             {
                 check && (
                     <div onClick={(event) => handelClick(event)}>
                         <div className={style.cart46CartQuantity}>
-                            <Image src={add} alt='add more quantity' />
+                            <Image src={add} alt='add more quantity' onClick={() => handleAdd()} />
                             <h5>Count: {quantity}</h5>
-                            <Image src={minus} alt='reduce quantity' />
+                            <Image src={minus} alt='reduce quantity' onClick={() => handleRemove()} />
                         </div>
 
                         <Button value='Remove Item' className='' func={() => dispatch(removeItem(data))}/>

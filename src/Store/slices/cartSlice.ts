@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '@/UI/ProductPage/Types';
 import { AddGivenQuantity, CartState } from './Types';
 import { findItemInCart } from '@/utils/functions';
+import { useDispatch } from 'react-redux';
 
 const initialState: CartState = {
   cartProducts: [],
@@ -35,6 +36,15 @@ export const cart = createSlice({
 
       state.totalCost += action.payload.price;
     },
+    decreaseQuantity: (state, action: PayloadAction<Product>) => {
+
+      const itemInCart = findItemInCart(state.cartProducts, action.payload.id);
+
+      if (itemInCart) {
+        itemInCart.quantity--;
+      }
+      state.totalCost -= action.payload.price;
+    },
     setDataFromLocal: (state, action: PayloadAction<CartState>) => {
       state.cartProducts = action.payload.cartProducts;
       state.totalCost = action.payload.totalCost;
@@ -55,6 +65,6 @@ export const cart = createSlice({
   }
 })
 
-export const { addToCart, setDataFromLocal, removeItem, addGivenQuantity } = cart.actions
+export const { addToCart, setDataFromLocal, removeItem, addGivenQuantity, decreaseQuantity } = cart.actions
 
 export default cart.reducer
