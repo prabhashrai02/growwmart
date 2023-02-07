@@ -122,7 +122,6 @@ export const useFilters = () => {
 
   return {
     categories,
-    setCategories,
     price,
     setPrice
   }
