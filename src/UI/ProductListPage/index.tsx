@@ -1,7 +1,7 @@
 import Card from '@/Common/Card';
 import CardSkeleton from '@/Common/Card/CardSkeleton';
 import Filters from '@/Common/Filters';
-import { setProductList } from '@/Store/slices/productSlice';
+import { setProductList, updateShowList } from '@/Store/slices/productSlice';
 import { RootState } from '@/Store/store';
 import { useProductArray } from './customProductListHook';
 
@@ -9,17 +9,19 @@ import React, { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import style from './ProductListPage.module.css';
+import { ProductListProps } from './Types';
 
 
-const ProductListPage = () => {
+const ProductListPage = (props: ProductListProps) => {
+  const data = props.data;
+
   const showProducts = useSelector((state: RootState) => state.product.showList);
   const showSkeleton = [1, 2, 3, 4, 5, 6];
   const dispatch = useDispatch();
-  const { productArray } = useProductArray();
 
   useEffect(() => {
-    productArray && dispatch(setProductList(productArray));
-  }, [productArray]);
+    data && dispatch(setProductList(data));
+  }, [props])
 
   return (
     <>
@@ -33,7 +35,7 @@ const ProductListPage = () => {
                   return <Card data={item} key={index} />
                 })
                 :
-                showSkeleton.map((_ , index): ReactNode => {
+                showSkeleton.map((_, index): ReactNode => {
                   return <CardSkeleton key={index} />
                 })
             }
