@@ -1,41 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 import style from './Navbar.module.css';
 
 import Link from 'next/link';
-import { useLocalData } from '@/utils/customHooks';
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/Store/store';
-import { updateSearchValue } from '@/Store/slices/productSlice';
+import { useLocalData } from '@/utils/customLocalSyncHook';
+import { useNavbar } from './customNavbarHooks';
 
 const Navbar = () => {
 
   const { cartSize } = useLocalData();
-
-  const searchQuery = useSelector((state: RootState) => state.product.searchValue);
-  const dispatch = useDispatch();
-  const router = useRouter();
-  const { query } = useRouter();
-
-  const timeoutRef = useRef<NodeJS.Timeout>();
-
-  useEffect(() => {
-    query.value && setSearchValue(query.value.toString());
-  }, [query, searchQuery])
-  
-  const [searchValue, setSearchValue] = useState<string>(searchQuery);
-
-  const cartURL = `../cart`;
-
-  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.currentTarget.value);
-  }
-
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => dispatch(updateSearchValue(searchValue)), 1000)
-    return () => clearTimeout(timeoutRef.current);
-  }, [searchValue])
+  const { searchValue, cartURL, handleChangeInput } = useNavbar();
 
   return (
     <div className={style.navbar32Bar}>

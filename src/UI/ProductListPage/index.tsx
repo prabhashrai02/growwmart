@@ -3,7 +3,7 @@ import CardSkeleton from '@/Common/Card/CardSkeleton';
 import Filters from '@/Common/Filters';
 import { setProductList } from '@/Store/slices/productSlice';
 import { RootState } from '@/Store/store';
-import { useProductArray } from '@/utils/customHooks';
+import { useProductArray } from './customProductListHook';
 
 import React, { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

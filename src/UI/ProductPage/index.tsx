@@ -1,6 +1,6 @@
 import Card from '@/Common/Card';
 import CardSkeleton from '@/Common/Card/CardSkeleton';
-import { useProduct } from '@/utils/customHooks';
+import { useProduct } from './customProductHooks';
 import style from './ProductPage.module.css';
 
 const ProductPage = () => {
