@@ -11,8 +11,10 @@ const ProductPage = () => {
     <>
       <div className={style.product34ProductPage}>
         {
-          product &&
+          product ?
           <Card data={product} showDescription={true} productPage={true} />
+          :
+          <CardSkeleton productPage={true} />
         }
       </div>
     </>

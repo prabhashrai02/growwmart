@@ -24,7 +24,16 @@
 }
 
 .skeleton34Product {
+    margin: 1rem 0;
     display: flex;
+}
+
+.skeleton22Image {
+    height: 30rem;
+}
+
+.skeleton21Offer {
+    height: 25rem;
 }
 
 .skeleton23Image {
@@ -52,6 +61,10 @@
     align-items: center;
 
     margin-left: 3rem;
+}
+
+.skeleton42Header {
+    height: 2rem;
 }
 
 @keyframes shine {

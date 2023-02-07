@@ -149,8 +149,8 @@ const Filters = () => {
                   return <li key={index}> <input type='checkbox' name='category' value={category} /> {category} </li>
                 })
                 :
-                skeletonArray.map((): ReactNode => {
-                  return <span className={style.skeleton_loader_background}></span>
+                skeletonArray.map((_, index): ReactNode => {
+                  return <span className={style.skeleton_loader_background} key={index}></span>
                 })
             }
           </div>

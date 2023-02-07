@@ -33,8 +33,8 @@ const ProductListPage = () => {
                   return <Card data={item} key={index} />
                 })
                 :
-                showSkeleton.map((): ReactNode => {
-                  return <CardSkeleton />
+                showSkeleton.map((_ , index): ReactNode => {
+                  return <CardSkeleton key={index} />
                 })
             }
           </div>
