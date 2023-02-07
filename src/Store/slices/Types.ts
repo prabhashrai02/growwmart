@@ -14,6 +14,7 @@ export type ProductState = {
     productList: Product[],
     showList: Product[],
     searchValue: string,
+    categories: string[]
 }
 
 export type AddGivenQuantity = {

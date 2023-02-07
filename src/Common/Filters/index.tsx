@@ -1,4 +1,4 @@
-import { updateSearchValue, updateShowList } from '@/Store/slices/productSlice';
+import { setCategoriesList, updateSearchValue, updateShowList } from '@/Store/slices/productSlice';
 import { RootState } from '@/Store/store';
 import { useFilters } from '@/utils/customHooks';
 import { useRouter } from 'next/router';
@@ -10,14 +10,20 @@ import { FilterData } from './Types';
 
 const Filters = () => {
 
-  const { categories, setCategories, price, setPrice } = useFilters();
+  const dispatch = useDispatch();
   const router = useRouter();
 
+  const { categories, price, setPrice } = useFilters();
+
+  useEffect(() => {
+    categories && dispatch(setCategoriesList(categories));
+  }, [categories])
+  
   const { value, sort, selectCategories, priceFilter } = router.query;
 
   const [searchValue, setSearchValue] = useState<string>('');
   const [sortValue, setSortValue] = useState<string>('');
-  const [categoriesSet, setCategoriesSet] = useState<Set<FormDataEntryValue>>();
+  const [selectedCategories, setSelectedCategories] = useState<Set<FormDataEntryValue>>();
 
 
   const skeletonArray = [1, 2, 3, 4];
@@ -40,33 +46,23 @@ const Filters = () => {
     const filterCategory: Set<FormDataEntryValue> = categories ? new Set([...catArray]) : new Set();
     const urlPrice = Number(priceFilter);
 
-    const entries: string[] = [];
-
-    filterCategory.forEach((item) => {
-      entries.push(item.toString());
-    })
-
     setSortValue(sortBy);
     urlPrice ? setPrice(urlPrice) : setPrice(1000);
-    setCategories(entries);
-    setCategoriesSet(filterCategory);
+    setSelectedCategories(filterCategory);
 
   }, [router.query])
 
   useEffect(() => {
     const filter: FilterData = {
       sort: sortValue,
-      selectCategory: categoriesSet,
+      selectCategory: selectedCategories,
       priceFilter: price,
       searchValue: searchValue
     }
 
     dispatch(updateShowList(filter));
 
-  }, [price, categories, searchValue, sortValue])
-
-
-  const dispatch = useDispatch();
+  }, [price, selectedCategories, searchValue, sortValue])
 
   const takeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.currentTarget.value);
