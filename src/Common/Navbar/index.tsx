@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import style from './Navbar.module.css';
 
@@ -15,8 +15,10 @@ const Navbar = () => {
 
   const searchQuery = useSelector((state: RootState) => state.product.searchValue);
   const dispatch = useDispatch();
-
+  const router = useRouter();
   const { query } = useRouter();
+
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     query.value && setSearchValue(query.value.toString());
@@ -29,9 +31,10 @@ const Navbar = () => {
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.currentTarget.value);
   }
-  
+
   useEffect(() => {
-    dispatch(updateSearchValue(searchValue));
+    timeoutRef.current = setTimeout(() => dispatch(updateSearchValue(searchValue)), 1000)
+    return () => clearTimeout(timeoutRef.current);
   }, [searchValue])
 
   return (
