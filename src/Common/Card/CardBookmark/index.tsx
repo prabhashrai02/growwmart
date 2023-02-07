@@ -12,9 +12,9 @@ const CardBookmark = (props: CardBookmarkProps) => {
     const dispatch = useDispatch();
 
     const bookmarked = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        event.preventDefault();
+      event.preventDefault();
 
-        dispatch(updateWishList(data));
+      dispatch(updateWishList(data));
     }
 
   return (

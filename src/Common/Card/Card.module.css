@@ -59,9 +59,7 @@
 
 .card44ProductDetails
 .card89ImageHolder img {
-    /* width: 20rem; */
     height: 20rem;
-    /* max-width: 15rem; */
 }
 
 .card12ProductImageButtons {
@@ -76,6 +74,7 @@
 }
 
 .card89ImageHolder img {
+    margin-top: 1.5rem;
     height: 25rem;
     width: 25rem;
     max-width: 100%;
