@@ -5,3 +5,8 @@
     align-items:flex-start;
     padding: 0 0.5rem;
 }
+
+.product71Filters {
+    display: flex;
+    flex-wrap: wrap;
+}

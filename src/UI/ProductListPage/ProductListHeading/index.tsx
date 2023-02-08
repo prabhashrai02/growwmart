@@ -30,30 +30,30 @@ const ProductListHeading = () => {
                 pathname === '/search' &&
                 <>
                     Applied Filters:-
-                    <p>
+                    <span className={style.product71Filters}>
                         {
                             <>
-                                <strong>Search Value : </strong> "{searchValue}" &emsp;
+                                <strong>Search Value : &nbsp; </strong> "{searchValue}" &emsp;
                             </>
                         }
                         {
                             <>
-                                <strong>Sort By : </strong> "{sortString}" &emsp;
+                                <strong>Sort By : &nbsp; </strong> "{sortString}" &emsp;
                             </>
                         }
                         {
                             <>
-                                <strong>Categories : </strong>
+                                <strong>Categories : &nbsp; </strong>
                                 {categoriesString}
                                 &emsp;
                             </>
                         }
                         {
                             <>
-                                <strong>Price : </strong> "{urlPrice}"
+                                <strong>Price : &nbsp; </strong> "{urlPrice}"
                             </>
                         }
-                    </p>
+                    </span>
                 </>
 
             }
