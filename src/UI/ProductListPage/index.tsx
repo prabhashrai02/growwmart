@@ -33,9 +33,12 @@ const ProductListPage = ({ data }: ProductListProps) => {
                   return <Card data={item} key={index} />
                 })
                 :
-                showSkeleton.map((_, index): ReactNode => {
-                  return <CardSkeleton key={index} />
-                })
+                data ?
+                  showSkeleton.map((_, index): ReactNode => {
+                    return <CardSkeleton key={index} />
+                  })
+                  :
+                  <>No result match your criteria</>
             }
           </div>
         </div>

@@ -2,7 +2,7 @@ import { FilterData } from "@/Common/Filters/Types";
 import { Product } from "@/UI/ProductPage/Types";
 
 export const filterProductList = (productList: Product[], filterData: FilterData) => {
-    
+
     let showList = productList;
 
     const sort = String(filterData.sort);
@@ -12,13 +12,15 @@ export const filterProductList = (productList: Product[], filterData: FilterData
 
     if (categories?.size) showList = filterCategories(categories, showList, productList);
 
-    if (maxPrice !== undefined && maxPrice!== null) showList = filterMaxPrice(maxPrice, showList);
+    if (maxPrice !== undefined && maxPrice !== null) showList = filterMaxPrice(maxPrice, showList);
 
     showList = filterSort(sort, showList);
 
     if (searchValue) showList = search(searchValue, showList);
 
-    return showList;
+    if (showList.length) return showList;
+
+    return null;
 }
 
 const filterCategories = (categories: Set<FormDataEntryValue>, showList: Product[], productList: Product[]) => {

@@ -5,33 +5,39 @@ import { useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 export const useNavbar = () => {
-  
-    const searchQuery = useSelector((state: RootState) => state.product.searchValue);
-    const dispatch = useDispatch();
-    const { query } = useRouter();
-  
-    const timeoutRef = useRef<NodeJS.Timeout>();
-  
-    useEffect(() => {
-      query.value && setSearchValue(query.value.toString());
-    }, [query, searchQuery])
-    
-    const [searchValue, setSearchValue] = useState<string>(searchQuery);
-  
-    const cartURL = `../cart`;
-  
-    const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setSearchValue(event.currentTarget.value);
-    }
-  
-    useEffect(() => {
-      timeoutRef.current = setTimeout(() => dispatch(updateSearchValue(searchValue)), 1000)
-      return () => clearTimeout(timeoutRef.current);
-    }, [searchValue])
 
-    return {
-      searchValue,
-      cartURL,
-      handleChangeInput
-    }
+  const { push, query } = useRouter();
+  const { sort, selectCategories, priceFilter } = query;
+  const updatedPrice = Number(priceFilter) ? Number(priceFilter) : 1000;
+
+  const searchQuery = useSelector((state: RootState) => state.product.searchValue);
+  const dispatch = useDispatch();
+
+  const timeoutRef = useRef<NodeJS.Timeout>();
+
+  const [searchValue, setSearchValue] = useState<string>(searchQuery);
+  const cartURL = `../cart`;
+
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.currentTarget.value;
+    setSearchValue(inputValue);
+  }
+
+  useEffect(() => {
+    timeoutRef.current = setTimeout(() => 
+    {
+      push({
+        query: { ...query, value: searchValue, sort: sort, selectCategories: selectCategories, priceFilter: updatedPrice },
+        pathname: "/search",
+      });
+      dispatch(updateSearchValue(searchValue))
+    }, 1000)
+    return () => clearTimeout(timeoutRef.current);
+  }, [searchValue])
+
+  return {
+    searchValue,
+    cartURL,
+    handleChangeInput
+  }
 }
