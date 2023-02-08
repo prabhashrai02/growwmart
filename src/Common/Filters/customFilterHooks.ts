@@ -1,4 +1,4 @@
-import { setCategoriesList, updateSearchValue } from "@/Store/slices/productSlice";
+import { setCategoriesList, setProductList, updateSearchValue } from "@/Store/slices/productSlice";
 import { RootState } from "@/Store/store";
 import router from "next/router";
 import { useState, useEffect } from "react";
@@ -55,6 +55,7 @@ export const useSyncFilter = () => {
   }
 
   const resetFilter = () => {
+    dispatch(setProductList([]));
     dispatch(updateSearchValue(''));
     router.push(`search?value=&sort=&selectCategories=&priceFilter=${1000}`);
   }
@@ -62,6 +63,8 @@ export const useSyncFilter = () => {
   const filterChanges = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+
+    dispatch(setProductList([]));
     const target = new FormData(event.currentTarget);
 
     const filterCategory: Set<FormDataEntryValue> = new Set(target.getAll('category'));

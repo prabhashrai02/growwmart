@@ -1,5 +1,5 @@
-import { updateSearchValue } from "@/Store/slices/productSlice";
-import { extractStringFromQuery } from "@/utils/functions";
+import { setProductList, updateSearchValue } from "@/Store/slices/productSlice";
+import { extractString } from "@/utils/functions";
 import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -14,10 +14,12 @@ export const useNavbar = () => {
 
   const timeoutRef = useRef<NodeJS.Timeout>();
 
-  const [searchValue, setSearchValue] = useState<string>(extractStringFromQuery(value));
+  const [searchValue, setSearchValue] = useState<string>(extractString(value));
   const cartURL = `../cart`;
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setProductList([]));
+
     const inputValue = event.currentTarget.value;
     setSearchValue(inputValue);
     push({
