@@ -1,0 +1,14 @@
+.cart70BothPrice {
+    display: flex;
+    align-items: center;
+}
+
+.cart78ProductPrice {
+    font-size: large;
+}
+
+.cart98OfferRate {
+    font-size: small;
+    font-weight: 800;
+    color: var(--card-rating-background);
+}
