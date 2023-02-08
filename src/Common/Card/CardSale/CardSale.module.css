@@ -1,0 +1,14 @@
+
+.card21ShowSale {
+    display: none;
+}
+
+.card90Sale {
+    position: absolute;
+    right: 0%;
+}
+
+.card90Sale img {
+    height: 3rem;
+    width: 3rem;
+}
