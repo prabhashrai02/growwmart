@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
+import { GetServerSideProps } from 'next/types';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,4 +17,14 @@ export default function Home() {
       </main>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps<{ data: any }> = async (context) => {
+
+  return {
+    redirect: {
+      destination: '/allproducts',
+      permanent: false,
+    },
+  }
 }
