@@ -6,6 +6,7 @@ import { RootState } from '@/Store/store';
 
 import React, { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ProductListHeading from './ProductListHeading';
 
 import style from './ProductListPage.module.css';
 import { ProductListProps } from './Types';
@@ -26,6 +27,7 @@ const ProductListPage = ({ data }: ProductListProps) => {
       <div className={style.productlist43page}>
         <Filters />
         <div className={style.product23All}>
+          <ProductListHeading />
           <div className={style.productlist41allProducts}>
             {
               showProducts.length ?

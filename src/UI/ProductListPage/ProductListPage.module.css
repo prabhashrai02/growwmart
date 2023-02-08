@@ -1,14 +1,16 @@
 .productlist43page {
     display: flex;
     width: 90vw;
-    margin-top: 5.5rem;
+    margin-top: 6.4rem;
 }
 
 .product23All {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 1rem;
-    justify-content: center;
+    align-items: center;
 }
 
 .productlist41allProducts {
