@@ -16,7 +16,6 @@ const CardButtons = (props: CardButtonProps) => {
 
     const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredNumber = Number(event.currentTarget.value);
-        console.log(enteredNumber)
 
         if (Number.isNaN(enteredNumber)) return;
         if (enteredNumber <= 0) {
