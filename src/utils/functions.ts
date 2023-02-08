@@ -8,8 +8,8 @@ export const findItemInCart = (cartProducts: CartList[], id: number) => {
 
 export const extractData = ({ value, sort, selectCategories, priceFilter }: QueryData) => {
 
-    const searchValue = extractStringFromQuery(value);
-    const sortBy = extractStringFromQuery(sort);
+    const searchValue = extractString(value);
+    const sortBy = extractString(sort);
 
     const extractedPrice = Number(priceFilter)
     const urlPrice = extractedPrice ? extractedPrice : 1000;
@@ -23,7 +23,7 @@ export const extractData = ({ value, sort, selectCategories, priceFilter }: Quer
     }
 }
 
-export const extractStringFromQuery = (value: string | string[] | undefined) => {
+export const extractString = (value: string | string[] | undefined) => {
 
     const queryValue = JSON.stringify(value);
 
