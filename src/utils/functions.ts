@@ -12,7 +12,7 @@ export const extractData = ({ value, sort, selectCategories, priceFilter }: Quer
     const sortBy = extractStringFromQuery(sort);
 
     const extractedPrice = Number(priceFilter)
-    const urlPrice = extractedPrice ? extractedPrice : 0;
+    const urlPrice = extractedPrice ? extractedPrice : 1000;
 
     const extractedCategories = JSON.stringify(selectCategories)
     const catArray = extractedCategories && extractedCategories.substring(1, extractedCategories.length - 1).split(',').filter((ele) => ele);
