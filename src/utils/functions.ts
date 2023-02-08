@@ -8,22 +8,27 @@ export const findItemInCart = (cartProducts: CartList[], id: number) => {
 
 export const extractData = ({ value, sort, selectCategories, priceFilter }: QueryData) => {
 
-    const extractedValue = JSON.stringify(value)
-    const extractedSort = JSON.stringify(sort)
-    const extractedCategories = JSON.stringify(selectCategories)
+    const searchValue = extractStringFromQuery(value);
+    const sortBy = extractStringFromQuery(sort);
+
     const extractedPrice = Number(priceFilter)
+    const urlPrice = extractedPrice ? extractedPrice : 0;
 
-    const searchValueLength = value ? value.length : 0;
-    const searchValue = value ? (extractedValue.substring(1, 1 + searchValueLength)) : '';
-
-    const sortLength = sort ? sort.length : 0;
-    const sortBy = sort ? extractedSort.substring(1, 1 + sortLength) : '';
-
+    const extractedCategories = JSON.stringify(selectCategories)
     const catArray = extractedCategories && extractedCategories.substring(1, extractedCategories.length - 1).split(',').filter((ele) => ele);
     const filterCategory: Set<FormDataEntryValue> = extractedCategories ? new Set([...catArray]) : new Set();
-    const urlPrice = extractedPrice ? extractedPrice : 0;
 
     return {
         sortBy, filterCategory, urlPrice, searchValue
     }
+}
+
+export const extractStringFromQuery = (value: string | string[] | undefined) => {
+
+    const queryValue = JSON.stringify(value);
+
+    const valueLength = value ? value.length : 0;
+    const extractedValue = value ? (queryValue.substring(1, 1 + valueLength)) : '';
+
+    return extractedValue;
 }

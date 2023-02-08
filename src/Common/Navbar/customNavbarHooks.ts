@@ -1,37 +1,33 @@
 import { updateSearchValue } from "@/Store/slices/productSlice";
-import { RootState } from "@/Store/store";
+import { extractStringFromQuery } from "@/utils/functions";
 import { useRouter } from "next/router";
 import { useRef, useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export const useNavbar = () => {
 
   const { push, query } = useRouter();
-  const { sort, selectCategories, priceFilter } = query;
+  const { sort, selectCategories, priceFilter, value } = query;
   const updatedPrice = Number(priceFilter) ? Number(priceFilter) : 1000;
 
-  const searchQuery = useSelector((state: RootState) => state.product.searchValue);
   const dispatch = useDispatch();
 
   const timeoutRef = useRef<NodeJS.Timeout>();
 
-  const [searchValue, setSearchValue] = useState<string>(searchQuery);
+  const [searchValue, setSearchValue] = useState<string>(extractStringFromQuery(value));
   const cartURL = `../cart`;
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.currentTarget.value;
     setSearchValue(inputValue);
+    push({
+      query: { ...query, value: inputValue, sort: sort, selectCategories: selectCategories, priceFilter: updatedPrice },
+      pathname: "/search",
+    });
   }
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(() => 
-    {
-      push({
-        query: { ...query, value: searchValue, sort: sort, selectCategories: selectCategories, priceFilter: updatedPrice },
-        pathname: "/search",
-      });
-      dispatch(updateSearchValue(searchValue))
-    }, 1000)
+    timeoutRef.current = setTimeout(() => dispatch(updateSearchValue(searchValue)), 1000)
     return () => clearTimeout(timeoutRef.current);
   }, [searchValue])
 
