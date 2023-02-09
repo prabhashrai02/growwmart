@@ -1,9 +1,13 @@
 .product34ProductPage {
     background-color: var(--light-background);
+    max-width: 90vw;
+    margin-top: 7rem;
+    padding: 1rem;
+}
+
+.product67CardContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-
     max-width: 90vw;
-    margin-top: 7rem;
 }
