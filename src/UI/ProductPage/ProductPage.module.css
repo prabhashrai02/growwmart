@@ -1,7 +1,7 @@
 .product34ProductPage {
     background-color: var(--light-background);
-    max-width: 90vw;
-    margin-top: 7rem;
+    width: var(--max-width);
+    margin: var(--margin-full-page);
     padding: 1rem;
 }
 

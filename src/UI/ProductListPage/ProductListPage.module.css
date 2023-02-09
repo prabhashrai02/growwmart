@@ -1,7 +1,7 @@
 .productlist43page {
     display: flex;
-    width: 90vw;
-    margin-top: 6.4rem;
+    width: var(--max-width);
+    margin: var(--margin-full-page);
 }
 
 .product23All {
