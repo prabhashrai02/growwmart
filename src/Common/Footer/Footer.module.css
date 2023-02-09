@@ -1,3 +1,24 @@
 .footer67Section {
     background-color: var(--light-background);
+    height: 15rem;
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-background);
+}
+
+.footer67Section span {
+    line-height: 3rem;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.footer80Policies,
+.footer79TrackContactBlog {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
