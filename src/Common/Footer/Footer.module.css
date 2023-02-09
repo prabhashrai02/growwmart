@@ -1,12 +1,13 @@
 .footer67Section {
     background-color: var(--light-background);
-    height: 15rem;
+    height: 25vh;
     padding: 5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--light-background);
+    position: relative;
 }
 
 .footer67Section span {
