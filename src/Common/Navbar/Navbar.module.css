@@ -83,15 +83,15 @@
 
 
 @media (max-width: 768px) {
+    .navbar23Heading {
+        display: none;
+    }
     .navbar32Bar {
         padding: 0.5rem 5vw;
     }
 }
 
 @media (max-width: 425px) {
-    .navbar23Heading {
-        display: none;
-    }
 
     .navbar98Center {
         width: 60%;
