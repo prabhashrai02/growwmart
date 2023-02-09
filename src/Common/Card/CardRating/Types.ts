@@ -1,4 +1,4 @@
-import { Rating } from '@/Common/Card/Types';
+import { Rating } from "@/UI/ProductPage/Types";
 
 export type CardRatingProps = {
     data: Rating,
