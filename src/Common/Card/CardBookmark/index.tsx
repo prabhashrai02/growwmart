@@ -7,15 +7,14 @@ import { CardBookmarkProps } from './Types';
 import bookmark from '@/Assets/bookmark.svg';
 import Image from 'next/image';
 
-const CardBookmark = (props: CardBookmarkProps) => {
-    const data = props.data;
-    const dispatch = useDispatch();
+const CardBookmark = ({ data }: CardBookmarkProps) => {
+  const dispatch = useDispatch();
 
-    const bookmarked = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      event.preventDefault();
+  const bookmarked = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.preventDefault();
 
-      dispatch(updateWishList(data));
-    }
+    dispatch(updateWishList(data));
+  }
 
   return (
     <div className={style.card87Bookmark}>
