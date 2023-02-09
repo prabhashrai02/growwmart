@@ -11,8 +11,9 @@ export const extractData = ({ value, sort, selectCategories, priceFilter }: Quer
     const searchValue = extractString(value);
     const sortBy = extractString(sort);
 
-    const extractedPrice = Number(priceFilter)
-    const urlPrice = extractedPrice ? extractedPrice : 1000;
+    const extractedPrice = Number(priceFilter);
+
+    const urlPrice = (extractedPrice || extractedPrice == 0) ? extractedPrice : 1000;
 
     const extractedCategories = JSON.stringify(selectCategories)
     const catArray = extractedCategories && extractedCategories.substring(1, extractedCategories.length - 1).split(',').filter((ele) => ele);
