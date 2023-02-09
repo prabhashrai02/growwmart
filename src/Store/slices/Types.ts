@@ -12,7 +12,7 @@ export type WishState = {
 
 export type ProductState = {
     productList: Product[],
-    showList: Product[],
+    showList: Product[] | null,
     searchValue: string,
     categories: string[]
 }

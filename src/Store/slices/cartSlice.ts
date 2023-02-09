@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '@/UI/ProductPage/Types';
 import { AddGivenQuantity, CartState } from './Types';
 import { findItemInCart } from '@/utils/functions';
-import { useDispatch } from 'react-redux';
 
 const initialState: CartState = {
   cartProducts: [],
