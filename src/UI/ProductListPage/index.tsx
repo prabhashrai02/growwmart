@@ -30,7 +30,7 @@ const ProductListPage = ({ data }: ProductListProps) => {
           <ProductListHeading />
           <div className={style.productlist41allProducts}>
             {
-              showProducts.length ?
+              showProducts && showProducts.length ?
                 showProducts.map((item, index): ReactNode => {
                   return <Card data={item} key={index} />
                 })
