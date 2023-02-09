@@ -8,7 +8,7 @@ export { default } from '@/UI/ProductListPage';
 
 export const getServerSideProps: GetServerSideProps<{ data: Product[] | null }> = async (context) => {
 
-    try {
+    // try {
 
         const { value, sort, selectCategories, priceFilter } = context.query;
         const extractedValues: QueryData = {
@@ -37,10 +37,10 @@ export const getServerSideProps: GetServerSideProps<{ data: Product[] | null }> 
                 data,
             },
         }
-    }
-    catch (e) {
-        return {
-            notFound: true
-        }
-    }
+    // }
+    // catch (e) {
+    //     return {
+    //         notFound: true
+    //     }
+    // }
 }
