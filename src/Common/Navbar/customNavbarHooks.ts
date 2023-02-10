@@ -25,20 +25,20 @@ export const useNavbar = () => {
     setSearchValue(inputValue);
     setInputChanges(true);
   }
-  
+
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       dispatch(updateSearchValue(searchValue));
 
       inputChanges &&
-      push({
-        query: { value: searchValue, sort: sort, selectCategories: selectCategories, priceFilter: updatedPrice },
-        pathname: "/search",
-      });
+        push({
+          query: { value: searchValue, sort: sort, selectCategories: selectCategories, priceFilter: updatedPrice },
+          pathname: "/search",
+        });
     }, 1000)
 
     return () => clearTimeout(timeoutRef.current);
-  }, [inputChanges])
+  }, [searchValue])
 
   return {
     searchValue,

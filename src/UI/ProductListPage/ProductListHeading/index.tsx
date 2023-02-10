@@ -82,12 +82,17 @@ const ProductListHeading = () => {
 
                     </span>
 
+                    {
+                        showProducts?.length ?
+                        <span>
+                            Showing <strong> {showProducts?.length} </strong> results
+                        </span>
+                        :
+                        <></>
+                    }
                 </>
 
             }
-            <span className={style.list56TotalResult}>
-                Showing <strong> {showProducts?.length} </strong> results
-            </span>
         </div>
     )
 }
