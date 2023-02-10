@@ -13,8 +13,13 @@ export const useFilters = () => {
   const fetchCategories = async () => {
     try {
       const response = await fetch('https://fakestoreapi.com/products/categories');
-      const data = await response.json();
-      setCategories(data);
+      const data: string[] = await response.json();
+
+      const showCategories = data.map((item: string) => {
+        return capitalizeFirstChar(item);
+      });
+
+      setCategories(showCategories);
     }
     catch (e) {
       console.log(e)
@@ -88,4 +93,10 @@ export const useSyncFilter = () => {
     skeletonArray,
     takeValue
   }
+}
+
+const capitalizeFirstChar = (word: string) => {
+  const modifiedWord = word[0].toUpperCase() + word.slice(1);
+
+  return modifiedWord;
 }
