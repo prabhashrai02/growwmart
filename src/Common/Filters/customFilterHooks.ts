@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const useFilters = () => {
 
+  const categoriesState = useSelector((state: RootState) => state.product.categories);
   const [categories, setCategories] = useState<string[]>([]);
   const [price, setPrice] = useState<number>(1000);
 
@@ -22,7 +23,10 @@ export const useFilters = () => {
 
   useEffect(() => {
     try {
-      fetchCategories();
+      categoriesState.length ?
+        setCategories(categoriesState)
+        :
+        fetchCategories();
     }
     catch (e) {
       console.log(e)
