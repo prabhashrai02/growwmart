@@ -4,13 +4,34 @@
     position: sticky;
     top: 10%;
     width: 20rem;
+    max-width: 90vw;
     padding: 2rem 2rem;
     background-color: var(--light-background);
 }
 
 .filters90TitleWithReset {
     display: flex;
+    position: relative;
     justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.filter56TopButtons {
+    display: flex;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+}
+
+.filter45HamburgerButon {
+    display: none;
+    padding: 0.3rem 0.5rem;
+    margin-bottom: 1rem;
+    min-width: 3rem;
+}
+
+.filter63HideMenu {
+    display: block;
 }
 
 .filters31SortType {
@@ -61,6 +82,20 @@
         position: relative;
         height: max-content;
         justify-content: space-between;
+    }
+
+    .filter45HamburgerButon {
+        display: block;
+    }
+
+
+    .filter63HideMenu {
+        display: none;
+    }
+}
+@media (max-width: 425px) {
+    .filters76Sidebar {
+        width: 25rem;
     }
 }
 
