@@ -1,12 +1,11 @@
 import Card from '@/Common/Card';
 import CardSkeleton from '@/Common/Card/CardSkeleton';
-import { useProduct } from './customProductHooks';
+import { GetServerSideProps } from 'next';
 import style from './ProductPage.module.css';
 import ProductPath from './ProductPath';
+import { Product, ProductPageProp } from './Types';
 
-const ProductPage = () => {
-
-  const { product } = useProduct();
+const ProductPage = ({ product }: ProductPageProp) => {
 
   return (
     <div className={style.product34ProductPage}>
@@ -24,3 +23,25 @@ const ProductPage = () => {
 }
 
 export default ProductPage;
+
+
+export const getServerSideProps: GetServerSideProps<{ product: Product }> = async (context) => {
+
+  const { productId } = context.query;
+
+  try {
+    const result = await fetch(`https://fakestoreapi.com/products/${productId}`);
+    const product = await result.json();
+
+    return {
+      props: {
+        product,
+      },
+    }
+  }
+  catch (e) {
+    return {
+      notFound: true
+    };
+  }
+}

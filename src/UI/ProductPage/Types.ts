@@ -1,3 +1,7 @@
+export type ProductPageProp = {
+    product: Product,
+}
+
 export type Product = {
     category: string,
     description: string,
