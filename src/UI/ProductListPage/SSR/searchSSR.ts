@@ -2,7 +2,7 @@ import { QueryData, FilterData } from "@/Common/Filters/Types";
 import { filterProductList } from "@/utils/filterList";
 import { extractData } from "@/utils/functions";
 import { GetServerSideProps } from "next";
-import { Product } from "../ProductPage/Types";
+import { Product } from "../../ProductPage/Types";
 
 export const getServerSideProps: GetServerSideProps<{ data: Product[] | null }> = async (context) => {
 
