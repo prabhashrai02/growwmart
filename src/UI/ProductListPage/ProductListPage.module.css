@@ -19,6 +19,17 @@
     justify-content: flex-start;
 }
 
+.product79EmptyList {
+    height: 10rem;
+    width: 25rem;
+    background-color: var(--light-background);
+    padding: 2rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1024px) {
     .productlist41allProducts {
         justify-content: center;

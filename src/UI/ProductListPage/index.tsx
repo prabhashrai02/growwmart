@@ -40,7 +40,7 @@ const ProductListPage = ({ data }: ProductListProps) => {
                     return <CardSkeleton key={index} />
                   })
                   :
-                  <>No result match your criteria</>
+                  <div className={style.product79EmptyList}>No result match your criteria</div>
             }
           </div>
         </div>
