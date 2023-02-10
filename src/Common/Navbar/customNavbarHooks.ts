@@ -11,6 +11,7 @@ export const useNavbar = () => {
   const updatedPrice = Number(priceFilter) ? Number(priceFilter) : 1000;
 
   const dispatch = useDispatch();
+  const [inputChanges, setInputChanges] = useState(false);
 
   const timeoutRef = useRef<NodeJS.Timeout>();
 
@@ -22,16 +23,22 @@ export const useNavbar = () => {
 
     const inputValue = event.currentTarget.value;
     setSearchValue(inputValue);
-    push({
-      query: { ...query, value: inputValue, sort: sort, selectCategories: selectCategories, priceFilter: updatedPrice },
-      pathname: "/search",
-    });
+    setInputChanges(true);
   }
-
+  
   useEffect(() => {
-    timeoutRef.current = setTimeout(() => dispatch(updateSearchValue(searchValue)), 1000)
+    timeoutRef.current = setTimeout(() => {
+      dispatch(updateSearchValue(searchValue));
+
+      inputChanges &&
+      push({
+        query: { value: searchValue, sort: sort, selectCategories: selectCategories, priceFilter: updatedPrice },
+        pathname: "/search",
+      });
+    }, 1000)
+
     return () => clearTimeout(timeoutRef.current);
-  }, [searchValue])
+  }, [inputChanges])
 
   return {
     searchValue,
