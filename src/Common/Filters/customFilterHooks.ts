@@ -1,5 +1,6 @@
 import { setCategoriesList, setProductList, updateSearchValue } from "@/Store/slices/productSlice";
 import { RootState } from "@/Store/store";
+import { capitalizeFirstChar } from "@/utils/functions";
 import router from "next/router";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -93,10 +94,4 @@ export const useSyncFilter = () => {
     skeletonArray,
     takeValue
   }
-}
-
-const capitalizeFirstChar = (word: string) => {
-  const modifiedWord = word[0].toUpperCase() + word.slice(1);
-
-  return modifiedWord;
 }

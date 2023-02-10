@@ -33,3 +33,9 @@ export const extractString = (value: string | string[] | undefined) => {
 
     return extractedValue;
 }
+
+export const capitalizeFirstChar = (word: string) => {
+    const modifiedWord = word[0].toUpperCase() + word.slice(1);
+  
+    return modifiedWord;
+  }

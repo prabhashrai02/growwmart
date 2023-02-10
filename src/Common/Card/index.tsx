@@ -15,9 +15,11 @@ import CardCartQuantity from './CardCartQuantity';
 import CardWishListButton from './CardWishListButton';
 import CardPrice from './CardPrice';
 import CardSale from './CardSale';
+import { capitalizeFirstChar } from '@/utils/functions';
 
 const Card = (props: CardProps) => {
     const { data, cartPage, productPage, quantity, showDescription, wishList } = props;
+    const category = data?.category && capitalizeFirstChar(data?.category);
     const showCartData = cartPage && !wishList;
 
     const imageURL = `${data?.image}`;
@@ -45,7 +47,7 @@ const Card = (props: CardProps) => {
 
                         <div className={`${style.card23ProductDescription} ${modifyProductDetail}`}>
                             <CardTitle productPage={productPage} cartPage={cartPage} title={data.title} />
-                            <p>{data.category}</p>
+                            <p>{category}</p>
                             <div className={style.card98ProductPriceRating}>
                                 <CardPrice data={data} />
                                 <CardRating data={data.rating} />

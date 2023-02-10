@@ -1,5 +1,6 @@
 import { FilterData } from "@/Common/Filters/Types";
 import { Product } from "@/UI/ProductPage/Types";
+import { capitalizeFirstChar } from "./functions";
 
 export const filterProductList = (productList: Product[], filterData: FilterData) => {
 
@@ -26,7 +27,7 @@ export const filterProductList = (productList: Product[], filterData: FilterData
 const filterCategories = (categories: Set<FormDataEntryValue>, showList: Product[], productList: Product[]) => {
 
     showList = productList.filter(item => {
-        return categories.has(item.category);
+        return categories.has(capitalizeFirstChar(item.category));
     });
 
     return showList;

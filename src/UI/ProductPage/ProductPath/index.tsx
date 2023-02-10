@@ -1,3 +1,4 @@
+import { capitalizeFirstChar } from '@/utils/functions';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react'
@@ -8,7 +9,7 @@ const ProductPath = ({ product }: ProductPathProps) => {
 
     const allProductsURL = '../allproducts';
     const productName = product?.title;
-    const category = product?.category;
+    const category = product?.category && capitalizeFirstChar(product?.category);
     const { push } = useRouter();
 
     const goToCategory = () => {
