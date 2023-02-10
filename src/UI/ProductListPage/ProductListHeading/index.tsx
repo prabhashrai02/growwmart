@@ -83,12 +83,9 @@ const ProductListHeading = () => {
                     </span>
 
                     {
-                        showProducts?.length ?
                         <span>
                             Showing <strong> {showProducts?.length} </strong> results
                         </span>
-                        :
-                        <></>
                     }
                 </>
 
