@@ -42,10 +42,6 @@
     scale: 1;
 }
 
-.card75Product a {
-    cursor: default;
-}
-
 .card23ProductDetails {
     display: flex;
     flex-direction: column;
