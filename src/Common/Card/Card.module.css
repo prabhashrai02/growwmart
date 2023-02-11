@@ -30,9 +30,8 @@
 }
 
 .card77Product {
-    /* width: 80%; */
     width: fit-content;
-    /* margin-bottom: 0; */
+    max-height: 100%;
     cursor: default;
     display: flex;
     justify-content: center;
@@ -41,6 +40,10 @@
 
 .card77Product:hover {
     scale: 1;
+}
+
+.card75Product a {
+    cursor: default;
 }
 
 .card23ProductDetails {
