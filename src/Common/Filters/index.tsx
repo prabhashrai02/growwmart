@@ -39,20 +39,20 @@ const Filters = () => {
             <h4 className={style.filters31SortType}><label>By Name</label></h4>
             <div className={style.sort91Radios}>
               <div>
-                <input type="radio" value="asc" name='sort' /> <label>Ascending</label>
+                <input type="radio" id='asc' value="asc" name='sort' /> <label htmlFor='asc' >Ascending</label>
               </div>
               <div>
-                <input type="radio" value="dec" name='sort' /> <label>Descending</label>
+                <input type="radio" id='dec' value="dec" name='sort' /> <label htmlFor='dec' >Descending</label>
               </div>
             </div>
 
             <h4 className={style.filters31SortType}><label>By Price</label></h4>
             <div className={style.sort91Radios}>
               <div>
-                <input type="radio" value="lowHigh" name='sort' /> <label>Low to High</label>
+                <input type="radio" id='lowHigh' value="lowHigh" name='sort' /> <label htmlFor='lowHigh' >Low to High</label>
               </div>
               <div>
-                <input type="radio" value="highLow" name='sort' /> <label>High to Low</label>
+                <input type="radio" id='highLow' value="highLow" name='sort' /> <label htmlFor='highLow' >High to Low</label>
               </div>
             </div>
           </div>
@@ -62,9 +62,12 @@ const Filters = () => {
             <div className={style.filters23AllCategories}>
 
               {
-                categories.length ?
+                categories ?
                   categories.map((category, index): ReactNode => {
-                    return <li key={index}> <input type='checkbox' name='category' value={category} /> {category} </li>
+                    return <li key={index}>
+                      <input type='checkbox' id={category} name='category' value={category} />
+                      <label htmlFor={category}> {category} </label>
+                    </li>
                   })
                   :
                   skeletonArray.map((_, index): ReactNode => {
