@@ -5,17 +5,3 @@
     margin-top: 5rem;
     min-height: 70vh;
 }
-
-.cart56WistList {
-    margin-top: 4rem;
-}
-
-.cart34Box {
-    background-color: var(--light-background);
-    padding: 2rem;
-    margin: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}

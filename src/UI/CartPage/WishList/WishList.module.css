@@ -1,0 +1,14 @@
+.cart34Box {
+    padding: 2rem;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart56WishList {
+    margin: 1rem 0;
+    background-color: var(--light-background);
+    box-shadow: var(--box-shadow);
+}

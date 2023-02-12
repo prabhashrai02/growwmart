@@ -12,7 +12,7 @@ const CardTitle = (props: TitleProps) => {
         <div className={style.card45CardTitle}>
             {
                 (productPage) ? <h1> {title} </h1>
-                    : (cartPage) ? <h3> {title} </h3>
+                    : (cartPage) ? <h4> <Ellipsis text={title} size={25} /> </h4>
                         : <h3><Ellipsis text={title} size={25} /></h3>
             }
         </div >
