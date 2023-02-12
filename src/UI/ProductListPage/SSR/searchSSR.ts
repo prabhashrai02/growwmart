@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps<{ data: Product[] | null }> 
             searchValue: searchValue,
         }
 
-        const result = await fetch('https://fakestoreapi.com/products/')
+        const result = await fetch(`${process.env.BASE_URL}/api/products/`)
         const productList: Product[] = await result.json();
 
         const data = filterProductList(productList, filter);
