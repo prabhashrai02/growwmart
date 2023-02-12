@@ -21,7 +21,7 @@ const ProductPath = ({ product }: ProductPathProps) => {
 
     return (
         <div className={style.product54Path}>
-            <Link href={allProductsURL}> All Products </Link>
+            <Link href={allProductsURL}> <span> All Products </span> </Link>
             &nbsp; &gt; &nbsp;
             <span onClick={() => goToCategory()} className={style.product78Category}> {category} </span>
             &nbsp; &gt; &nbsp;
