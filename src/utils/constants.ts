@@ -1,0 +1,1 @@
+export const ALL_PRODUCTS = `${process.env.BASE_URL}/allProducts.json`;
