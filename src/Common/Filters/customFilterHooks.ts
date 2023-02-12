@@ -13,7 +13,7 @@ export const useFilters = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('https://fakestoreapi.com/products/categories');
+      const response = await fetch(`${process.env.BASE_URL}/api/products/categories`);
       const data: string[] = await response.json();
 
       const showCategories = data.map((item: string) => {
