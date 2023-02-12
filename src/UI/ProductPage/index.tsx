@@ -1,6 +1,7 @@
 import Card from '@/Common/Card';
 import CardSkeleton from '@/Common/Card/CardSkeleton';
 import { GetServerSideProps } from 'next';
+import ProdutFeatured from './ProductFeatured';
 import style from './ProductPage.module.css';
 import ProductPath from './ProductPath';
 import { Product, ProductPageProp } from './Types';
@@ -18,6 +19,7 @@ const ProductPage = ({ product }: ProductPageProp) => {
             <CardSkeleton productPage={true} />
         }
       </div>
+      <ProdutFeatured />
     </div>
   )
 }
