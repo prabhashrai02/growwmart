@@ -77,11 +77,16 @@
 }
 
 @media (max-width: 768px) {
+    .filters90TitleWithReset {
+        /* padding: 1rem; */
+    }
+
     .filters76Sidebar {
         width: 100%;
-        position: relative;
+        position: absolute;
+        top: 0;
+        z-index: 1;
         height: max-content;
-        justify-content: space-between;
     }
 
     .filter45HamburgerButon {
