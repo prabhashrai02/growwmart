@@ -37,7 +37,7 @@ const Card = (props: CardProps) => {
                         <CardBookmark data={data} />
                         <CardSale data={data} />
                         <div className={`${style.card89ImageHolder} ${cardProductWithButton}`}>
-                            <Image loader={() => imageURL} src={imageURL} alt={data.title} unoptimized={true} width={100} height={100} />
+                            <Image src={imageURL} alt={data.title} unoptimized={true} width={100} height={100} />
                             <CardButtons check={productPage} data={data} />
                         </div>
                     </div>

@@ -3,7 +3,6 @@
     width: 25rem;
     max-height: 35rem;
     max-width: 90vw;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     margin: 1rem 0.6rem;
@@ -16,8 +15,8 @@
 
 .card75Product {
     box-shadow: none;
-    margin-top: 2rem;
-    width: 80% !important;
+    margin: 1rem  0 0 0;
+    width: 100% !important;
     margin-bottom: 0;
     display: flex;
     justify-content: center;
