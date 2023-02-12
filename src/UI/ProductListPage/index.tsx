@@ -3,6 +3,7 @@ import CardSkeleton from '@/Common/Card/CardSkeleton';
 import Filters from '@/Common/Filters';
 import { setProductList } from '@/Store/slices/productSlice';
 import { RootState } from '@/Store/store';
+import Link from 'next/link';
 
 import React, { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +33,11 @@ const ProductListPage = ({ data }: ProductListProps) => {
             {
               showProducts && showProducts.length ?
                 showProducts.map((item, index): ReactNode => {
-                  return <Card data={item} key={index} />
+                  return (
+                    <Link key={index} href={`../product/${item?.id}`}>
+                      <Card data={item} />
+                    </Link>
+                  )
                 })
                 :
                 data ?

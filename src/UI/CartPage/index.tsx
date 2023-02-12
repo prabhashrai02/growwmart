@@ -1,5 +1,6 @@
 import Card from '@/Common/Card';
 import { RootState } from '@/Store/store';
+import Link from 'next/link';
 import React, { ReactNode, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import CartEmpty from './CartEmpty';
@@ -8,37 +9,43 @@ import WishListEmpty from './WishListEmpty';
 
 const CartPage = () => {
 
-  const cart = useSelector((state: RootState) => state.cart);
-  const cartProduct = cart.cartProducts;
-  const cartSize = cart.cartProducts.length;
+    const cart = useSelector((state: RootState) => state.cart);
+    const cartProduct = cart.cartProducts;
+    const cartSize = cart.cartProducts.length;
 
-  const wishList = useSelector((state: RootState) => state.wish.wishList);
-  const wishListSize = wishList.length;
-    
+    const wishList = useSelector((state: RootState) => state.wish.wishList);
+    const wishListSize = wishList.length;
+
     return (
         <div className={style.cart98CartPage}>
             <div className={style.cart34Box}>
                 {
                     cartSize ?
-                    cartProduct.map((item, index): ReactNode => {
-                        return <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />;
-                    })
-                    :
-                    <CartEmpty />
+                        cartProduct.map((item, index): ReactNode => {
+                            return (
+                                <Link href={`../product/${item.product?.id}`}>
+                                    <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />;
+                                </Link>
+                            )
+                        })
+                        :
+                        <CartEmpty />
                 }
             </div>
             <div className={style.cart34Box}>
                 {
                     wishListSize ?
-                    wishList.map((item, index): ReactNode => {
-                        return (
-                            <div className={style.cart56WistList}>
-                                <Card cartPage={true} wishList={true} data={item} key={index} />
-                            </div>
-                        )
-                    })
-                    :
-                    <WishListEmpty />
+                        wishList.map((item, index): ReactNode => {
+                            return (
+                                <div className={style.cart56WistList}>
+                                    <Link href={`../product/${item?.id}`}>
+                                        <Card cartPage={true} wishList={true} data={item} key={index} />
+                                    </Link>
+                                </div>
+                            )
+                        })
+                        :
+                        <WishListEmpty />
                 }
             </div>
         </div>
