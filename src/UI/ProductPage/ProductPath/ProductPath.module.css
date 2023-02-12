@@ -5,3 +5,7 @@
 .product78Category {
     cursor: pointer;
 }
+
+.product54Path span:hover {
+    text-decoration: underline;
+}
