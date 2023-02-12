@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<{ product: Product }> = asyn
   const { productId } = context.query;
 
   try {
-    const result = await fetch(`https://fakestoreapi.com/products/${productId}`);
+    const result = await fetch(`${process.env.BASE_URL}/api/products/${productId}`);
     const product = await result.json();
 
     return {
