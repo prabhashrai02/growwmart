@@ -1,9 +1,16 @@
 
 .card87Bookmark {
     position: absolute;
+    top: -0.5rem;
 }
 
 .card87Bookmark svg {
     height: 2rem;
     width: 2rem;
+}
+
+@media (max-width: 425px) {
+    .card87Bookmark {
+        left: 0.5rem;
+    }
 }

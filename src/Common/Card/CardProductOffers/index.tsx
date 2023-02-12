@@ -8,23 +8,23 @@ const CardProductOffers = (props: CardProductOfferProps) => {
   const showData = props.check;
 
   return (
-    <div>
+    <div className={style.offer47Container}>
       {
         showData &&
         <div className={style.offer23OfferCard}>
           <div className={style.offer09OfferHead}>
-          <Image src={offer} alt='offer'/>
-          <h2 className={style.offer12Text}> Available Offers </h2>
-            </div>
-          <div className={style.offer45BreakLine} />
-            <div>
-              <p>
-                Valentine's Sale 3rd-15th Feb: 25% off on orders ₹1099+.
-              </p>
+            <Image src={offer} alt='offer' />
+            <h2 className={style.offer12Text}> Available Offers </h2>
           </div>
-              <h3 className={style.offer54Coupon}>
-                Use code - FLAT25
-              </h3>
+          <div className={style.offer45BreakLine} />
+          <div>
+            <p>
+              Valentine's Sale 3rd-15th Feb: 25% off on orders ₹1099+.
+            </p>
+          </div>
+          <h3 className={style.offer54Coupon}>
+            Use code - FLAT25
+          </h3>
           <div className={style.offer45BreakLine} />
 
           <h4>

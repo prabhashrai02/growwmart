@@ -25,7 +25,7 @@ const CartPage = () => {
                             return (
                                 <div key={index}>
                                     <Link href={`../product/${item.product?.id}`}>
-                                        <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />;
+                                        <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />
                                     </Link>
                                 </div>
                             )

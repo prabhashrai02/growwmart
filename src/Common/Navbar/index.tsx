@@ -14,17 +14,19 @@ const Navbar = () => {
   const { cartSize } = useLocalData();
   const { searchValue, cartURL, handleChangeInput } = useNavbar();
 
+  const growwLogo = `https://groww.in/logo-groww270.png`;
+
   return (
     <div className={style.navbar32Bar}>
       <Link href='../allproducts'>
         <div className={style.navbar45Left}>
-          <img src='https://groww.in/logo-groww270.png' alt='logo' />
+          <Image src={growwLogo} alt='logo' unoptimized={true} width={50} height={50} />
           <p className={style.navbar23Heading}>GrowwMart</p>
         </div>
       </Link>
 
       <div className={style.navbar98Center}>
-        <input type='text' className={style.navbar85Input} value={searchValue} placeholder='Search for any Product' onChange={(event) => handleChangeInput(event)} />
+        <input type='text' className={style.navbar85Input} value={searchValue} placeholder='Search' onChange={(event) => handleChangeInput(event)} />
         <Image src={search} alt='search' />
       </div>
 

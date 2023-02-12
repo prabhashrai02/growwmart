@@ -5,7 +5,8 @@
 
 .card90Sale {
     position: absolute;
-    right: 0%;
+    top: -0.5rem;
+    right: 0;
 }
 
 .card90Sale img {

@@ -111,17 +111,30 @@
     .card45ProductDetails {
         flex-direction: column;
     }
-    
-    .card45ProductDetails img {
-        height: 100%;
-    }
-    
+
     .card67ProductDescription {
         margin-left: 0;
     }
 }
 
 @media (max-width: 425px) {
+    .card23ProductDetails {
+        padding: 0;
+    }
+
+    .card54Product {
+        max-width: 100vw;
+        padding: 1rem 0;
+    }
+
+    .card75Product {
+        width: max-content !important;
+        background: var(--light-background);
+    }
+
+    .card45ProductDetails {
+        padding: 1rem 0;
+    }
 
     .card44ProductDetails {
         width: 25rem;
@@ -137,5 +150,9 @@
 
     .card54Product:hover {
         scale: 1;
+    }
+
+    .card89ImageHolder {
+        max-width: 24rem;
     }
 }
