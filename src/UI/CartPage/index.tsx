@@ -23,9 +23,11 @@ const CartPage = () => {
                     cartSize ?
                         cartProduct.map((item, index): ReactNode => {
                             return (
-                                <Link href={`../product/${item.product?.id}`}>
-                                    <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />;
-                                </Link>
+                                <div key={index}>
+                                    <Link href={`../product/${item.product?.id}`}>
+                                        <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />;
+                                    </Link>
+                                </div>
                             )
                         })
                         :
@@ -37,7 +39,7 @@ const CartPage = () => {
                     wishListSize ?
                         wishList.map((item, index): ReactNode => {
                             return (
-                                <div className={style.cart56WistList}>
+                                <div className={style.cart56WistList} key={index}>
                                     <Link href={`../product/${item?.id}`}>
                                         <Card cartPage={true} wishList={true} data={item} key={index} />
                                     </Link>
