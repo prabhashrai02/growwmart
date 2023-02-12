@@ -10,6 +10,7 @@ export type Product = {
     price: number,
     rating: Rating,
     title: string,
+    blurhash: string,
 }
 
 export type Rating = {
