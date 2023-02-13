@@ -8,3 +8,10 @@ export type CardProps = {
     showDescription?: boolean,
     wishList?: boolean,
 }
+
+export type GetModifiedClassesProps = {
+    data: Product | undefined,
+    productPage: boolean | undefined,
+    cartPage: boolean | undefined,
+    wishList: boolean | undefined
+}
