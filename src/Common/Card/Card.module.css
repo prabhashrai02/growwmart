@@ -58,6 +58,7 @@
 .card44ProductDetails
 .card89ImageHolder img {
     height: 20rem;
+    object-fit: cover;
 }
 
 .card12ProductImageButtons {
@@ -76,7 +77,6 @@
     height: 25rem;
     width: 25rem;
     max-width: 100%;
-    object-fit: contain;
 }
 
 .card23ProductDescription {

@@ -1,6 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
+import { decode } from 'blurhash';
+import { getImgFromArr } from 'array-to-image';
+
 import { capitalizeFirstChar } from '@/utils/functions';
 import { CardProps } from './Types';
 
@@ -29,6 +32,10 @@ const Card = (props: CardProps) => {
     const cardProductWithButton = productPage ? `${style.card12ProductImageButtons}` : "";
     const modifyProductDetail = productPage ? `${style.card67ProductDescription}` : cartPage ? `${style.card67ProductDescription}` : "";
 
+    const pixels = decode(`${data?.blurhash}`, 32, 32)
+    const image = getImgFromArr(pixels, 32, 32)
+    const src = image.src;
+
     return (
         <div className={`${style.card54Product} ${modifyCardProductStyle}`}> {
             data && (
@@ -37,7 +44,7 @@ const Card = (props: CardProps) => {
                         <CardBookmark data={data} />
                         <CardSale data={data} />
                         <div className={`${style.card89ImageHolder} ${cardProductWithButton}`}>
-                            <Image src={imageURL} alt={data.title} unoptimized={true} width={100} height={100} />
+                            <Image src={imageURL} alt={data.title} placeholder="blur" blurDataURL={src} unoptimized={true} width={100} height={100} />
                             <CardButtons check={productPage} data={data} />
                         </div>
                     </div>
