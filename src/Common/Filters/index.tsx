@@ -40,20 +40,20 @@ const Filters = () => {
             <h4 className={style.filters31SortType}>By Name</h4>
             <div className={style.sort91Radios}>
               <div>
-                <input type="radio" id='asc' value="asc" name='sort' defaultChecked={prefetchedData?.sort === "asc"} onChange={() => {}} /> <label htmlFor='asc' >Ascending</label>
+                <input readOnly type="radio" id='asc' value="asc" name='sort' checked={prefetchedData?.sort === "asc"} onChange={() => {}} /> <label htmlFor='asc' >Ascending</label>
               </div>
               <div>
-                <input type="radio" id='dec' value="dec" name='sort' defaultChecked={prefetchedData?.sort === "dec"} /> <label htmlFor='dec' >Descending</label>
+                <input readOnly type="radio" id='dec' value="dec" name='sort' checked={prefetchedData?.sort === "dec"} /> <label htmlFor='dec' >Descending</label>
               </div>
             </div>
 
             <h4 className={style.filters31SortType}>By Price</h4>
             <div className={style.sort91Radios}>
               <div>
-                <input type="radio" id='lowHigh' value="lowHigh" name='sort' defaultChecked={prefetchedData?.sort === "lowHigh"} /> <label htmlFor='lowHigh' >Low to High</label>
+                <input readOnly type="radio" id='lowHigh' value="lowHigh" name='sort' checked={prefetchedData?.sort === "lowHigh"} /> <label htmlFor='lowHigh' >Low to High</label>
               </div>
               <div>
-                <input type="radio" id='highLow' value="highLow" name='sort' defaultChecked={prefetchedData?.sort === "highLow"} /> <label htmlFor='highLow' >High to Low</label>
+                <input readOnly type="radio" id='highLow' value="highLow" name='sort' checked={prefetchedData?.sort === "highLow"} /> <label htmlFor='highLow' >High to Low</label>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@ const Filters = () => {
                 categories ?
                   categories.map((category, index): ReactNode => {
                     return <li key={index}>
-                      <input type='checkbox' id={category} name='category' value={category} defaultChecked={prefetchedData?.filterCategories.has(category)} />
+                      <input readOnly type='checkbox' id={category} name='category' value={category} checked={prefetchedData?.filterCategories.has(category)} />
                       <label htmlFor={category}> {category} </label>
                     </li>
                   })
