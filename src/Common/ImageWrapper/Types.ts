@@ -1,5 +1,5 @@
-import { Product } from "@/UI/ProductPage/Types"
-
 export type ImageWrapperProps = {
-    data: Product,
+    imageSrc: string,
+    alt: string,
+    blurHash: string,
 }
