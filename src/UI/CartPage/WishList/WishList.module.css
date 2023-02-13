@@ -7,8 +7,19 @@
     justify-content: center;
 }
 
+.cart12Head {
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
 .cart56WishList {
     margin: 1rem 0;
     background-color: var(--light-background);
     box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 425px) {
+    .cart34Box {
+        padding: 0;
+    }
 }

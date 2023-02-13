@@ -7,6 +7,11 @@
     justify-content: center;
 }
 
+.cart12Head {
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
 .cart43CartItems {
     background-color: var(--light-background);
     box-shadow: var(--box-shadow);

@@ -1,10 +1,12 @@
 .cartempty56EmptyBox {
-    width: 40rem;
+    width: var(--max-width);
     height: 10rem;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     padding: 1rem;
+
     background-color: var(--light-background);
+    max-width: var(--max-width);
 }

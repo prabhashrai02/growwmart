@@ -1,7 +1,33 @@
 .cart98CartPage {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     margin-top: 5rem;
     min-height: 70vh;
+    width: 90vw;
+}
+
+.cart98CartChekout {
+    display: flex;
+    width: 20%;
+}
+
+.cart90CartWishlist {
+    width: 80%;
+}
+@media (max-width: 768px) {
+    .cart98CartPage {
+        margin: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cart98CartChekout {
+        width: 75%;
+    }
+}
+
+@media (max-width: 425px) {
+    .cart98CartChekout {
+        width: 100%;
+    }
 }
