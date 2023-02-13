@@ -17,6 +17,7 @@
     "array-to-image": "^1.0.0",
     "blurhash": "^2.0.4",
     "next": "13.1.5",
+    "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",
