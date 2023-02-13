@@ -1,11 +1,8 @@
-import { ButtonProps } from './Types';
 import React from 'react';
 
-const Button = (props: ButtonProps) => {
-    const value = props.value;
-    const className = `${props.className}`;
-    const type = props.type;
-    const func = props.func ? props.func : () => {};
+import { ButtonProps } from './Types';
+
+const Button = ({ value, className, type, func }: ButtonProps) => {
 
   return <button className={className} type={type} onClick={func}> {value} </button>
 }

@@ -1,13 +1,13 @@
 import React from 'react';
-
-import style from './Navbar.module.css';
-
 import Link from 'next/link';
-import { useLocalData } from '@/utils/customLocalSyncHook';
-import { useNavbar } from './customNavbarHooks';
 import Image from 'next/image';
 
+import { useLocalData } from '@/utils/customLocalSyncHook';
+import { useNavbar } from './customNavbarHooks';
+
 import search from '@/Assets/search.svg';
+
+import style from './Navbar.module.css';
 
 const Navbar = () => {
 

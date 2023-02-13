@@ -1,9 +1,11 @@
-import { setCategoriesList, setProductList, updateSearchValue } from "@/Store/slices/productSlice";
-import { RootState } from "@/Store/store";
-import { capitalizeFirstChar, extractData } from "@/utils/functions";
 import router, { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { RootState } from "@/Store/store";
+import { capitalizeFirstChar, extractData } from "@/utils/functions";
+import { setCategoriesList, setProductList, updateSearchValue } from "@/Store/slices/productSlice";
+
 import { PrefetchedData, QueryData } from "./Types";
 
 export const useFilters = () => {

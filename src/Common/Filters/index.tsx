@@ -1,13 +1,15 @@
-import { useSyncFilter } from './customFilterHooks';
 import React, { ReactNode, useState } from 'react';
-import style from './Filters.module.css';
+
+import { useSyncFilter } from './customFilterHooks';
+
 import Button from '../Button';
+
+import style from './Filters.module.css';
 
 const Filters = () => {
 
   const { categories, price, filterChanges, resetFilter, skeletonArray, takeValue, prefetchedData } = useSyncFilter();
 
-  console.log(prefetchedData)
   const [hideMenu, sethideMenu] = useState(`${style.filter63HideMenu}`);
   const handleHamburger = () => {
     if (hideMenu === `${style.filter63HideMenu}`) {

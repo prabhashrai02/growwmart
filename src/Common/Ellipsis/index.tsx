@@ -5,6 +5,7 @@ import { EllipsisProps } from './Types';
 import style from './Ellipsis.module.css';
 
 const Ellipsis = (props: EllipsisProps) => {
+
   const tooltipStyle = { fontWeight: 100 }
 
   const trimSize = props.size ? props.size : 20;
