@@ -9,6 +9,11 @@
     background-color: var(--light-background);
 }
 
+.filters76Sidebar input,
+.filters76Sidebar label {
+    cursor: pointer;
+}
+
 .filters90TitleWithReset {
     display: flex;
     position: relative;
@@ -64,8 +69,10 @@
 .filters34PriceFilter {
     margin: 1rem 0;
 }
+
 .filters32PriceRange {
     margin: 1rem 0;
+    padding: 0;
     width: 100%;
 }
 
