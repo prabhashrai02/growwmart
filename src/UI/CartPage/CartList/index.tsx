@@ -1,10 +1,13 @@
-import Card from '@/Common/Card';
-import { RootState } from '@/Store/store';
-import Link from 'next/link';
 import React, { ReactNode } from 'react'
+import Link from 'next/link';
 import { useSelector } from 'react-redux';
-import style from './CartList.module.css';
+
+import { RootState } from '@/Store/store';
+
+import Card from '@/Common/Card';
 import CartEmpty from '../CartEmpty';
+
+import style from './CartList.module.css';
 
 const CartList = () => {
 

@@ -1,10 +1,13 @@
-import Card from '@/Common/Card';
-import { RootState } from '@/Store/store';
-import Link from 'next/link';
 import React, { ReactNode } from 'react'
 import { useSelector } from 'react-redux';
-import style from './WishList.module.css';
+import Link from 'next/link';
+
+import { RootState } from '@/Store/store';
+
+import Card from '@/Common/Card';
 import WishListEmpty from '../WishListEmpty';
+
+import style from './WishList.module.css';
 
 const WishList = () => {
     const wishList = useSelector((state: RootState) => state.wish.wishList);

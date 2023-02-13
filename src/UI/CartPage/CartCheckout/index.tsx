@@ -1,7 +1,10 @@
-import Button from '@/Common/Button';
-import { RootState } from '@/Store/store';
 import React from 'react';
 import { useSelector } from 'react-redux';
+
+import { RootState } from '@/Store/store';
+
+import Button from '@/Common/Button';
+
 import style from './CartCheckout.module.css';
 
 const CartCheckout = () => {

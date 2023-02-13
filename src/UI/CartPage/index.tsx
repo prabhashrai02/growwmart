@@ -1,8 +1,10 @@
 import React from 'react';
+
 import CartCheckout from './CartCheckout';
 import CartList from './CartList';
-import style from './CartPage.module.css';
 import WishList from './WishList';
+
+import style from './CartPage.module.css';
 
 const CartPage = () => {
 
