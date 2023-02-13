@@ -131,7 +131,7 @@
     }
 
     .card54Product {
-        max-width: 100vw;
+        max-width: var(--max-width);
         padding: 1rem 0;
     }
 
@@ -145,12 +145,12 @@
     }
 
     .card44ProductDetails {
-        width: 25rem;
+        width: var(--max-width);
         flex-direction: column;
     }
 
     .card67ProductDescription {
-        width: 25rem;
+        width: var(--max-width);
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -161,10 +161,10 @@
     }
 
     .card77Product {
-        max-width: 90vw;
+        max-width: var(--max-width);
     }
 
     .card89ImageHolder {
-        max-width: 24rem;
+        max-width: 85vw;
     }
 }

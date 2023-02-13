@@ -1,3 +1,6 @@
 .cardDesc90Para {
     font-size: larger;
+    max-width: 85vw;
+    word-wrap: break-word;
+    margin: auto;
 }

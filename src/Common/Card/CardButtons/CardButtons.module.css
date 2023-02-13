@@ -27,3 +27,18 @@
     width: 10rem;
     padding: 1rem;
 }
+
+@media (max-width: 425px) {
+    .card98Buttons {
+        justify-content: space-around;
+        width: var(--max-width);
+    }
+    
+    .card78AddToCart {
+        width: 40%;
+    }
+    
+    .card54BuyNow { 
+        width: 40%;
+    }
+}
