@@ -1,17 +1,17 @@
+import React, { ReactNode, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
+
+import { setProductList } from '@/Store/slices/productSlice';
+import { RootState } from '@/Store/store';
+import { ProductListProps } from './Types';
+
 import Card from '@/Common/Card';
 import CardSkeleton from '@/Common/Card/CardSkeleton';
 import Filters from '@/Common/Filters';
-import { setProductList } from '@/Store/slices/productSlice';
-import { RootState } from '@/Store/store';
-import Link from 'next/link';
-
-import React, { ReactNode, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import ProductListHeading from './ProductListHeading';
 
 import style from './ProductListPage.module.css';
-import { ProductListProps } from './Types';
-
 
 const ProductListPage = ({ data }: ProductListProps) => {
 

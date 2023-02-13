@@ -1,10 +1,12 @@
-import { QueryData } from '@/Common/Filters/Types';
+import React from 'react';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+
 import { RootState } from '@/Store/store';
 import { extractData } from '@/utils/functions';
-import { useRouter } from 'next/router';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { QueryData } from '@/Common/Filters/Types';
 import { getCategoriesString } from './getCategoriesString';
+
 import style from './ProductListHeading.module.css';
 
 const ProductListHeading = () => {
@@ -37,7 +39,6 @@ const ProductListHeading = () => {
                         {
                             <>
                                 {
-
                                     searchValue &&
                                     <span>
                                         <strong>You searched for : &nbsp; </strong> "{searchValue}" &emsp;

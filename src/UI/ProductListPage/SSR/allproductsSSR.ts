@@ -1,5 +1,6 @@
-import { Product } from "@/UI/ProductPage/Types";
 import { GetServerSideProps } from "next";
+
+import { Product } from "@/UI/ProductPage/Types";
 
 export const getServerSideProps: GetServerSideProps<{ data: Product[] }> = async () => {
     try {
