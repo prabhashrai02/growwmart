@@ -58,7 +58,7 @@ export const cart = createSlice({
 
       let totalCost: number = 0;
       state.cartProducts.forEach(item => {
-        totalCost += item.product.price;
+        totalCost += (item.product.price * item.quantity);
       })
 
       state.totalCost = totalCost;
