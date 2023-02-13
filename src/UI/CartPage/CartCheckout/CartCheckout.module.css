@@ -11,6 +11,25 @@
     box-shadow: var(--box-shadow);
 }
 
+.cart24Summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.cart80Heading {
+    margin: 1rem 0;
+}
+
+.cart90Price p {
+    margin: 0.5rem 0;
+}
+
+.cart89TotalPrice {
+    margin: 1rem 0;
+}
+
 .cart23CheckoutButton {
     margin: 1rem 0;
     width: 100%;
