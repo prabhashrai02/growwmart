@@ -2,19 +2,19 @@ import { CartList } from "@/UI/CartPage/Types";
 import { Product } from "@/UI/ProductPage/Types";
 
 export type CartState = {
-    cartProducts: CartList[];
-    totalCost: number;
+    cartProducts: CartList[],
+    totalCost: number,
 }
 
 export type WishState = {
-    wishList: Product[];
+    wishList: Product[],
 }
 
 export type ProductState = {
     productList: Product[],
     showList: Product[] | null,
     searchValue: string,
-    categories: string[]
+    categories: string[],
 }
 
 export type AddGivenQuantity = {

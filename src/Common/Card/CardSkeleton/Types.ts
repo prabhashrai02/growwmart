@@ -1,3 +1,3 @@
 export type CardSkeletonProps = {
-    productPage?: boolean;
+    productPage?: boolean,
 }

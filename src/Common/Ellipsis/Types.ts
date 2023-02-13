@@ -1,5 +1,5 @@
 
 export type EllipsisProps = {
-    text: string;
-    size?: number;
+    text: string,
+    size?: number,
 }
