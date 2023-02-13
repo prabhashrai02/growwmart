@@ -15,7 +15,6 @@
 .cart43CartItems {
     background-color: var(--light-background);
     box-shadow: var(--box-shadow);
-    margin: 1rem 0;
 }
 
 @media (max-width: 425px) {

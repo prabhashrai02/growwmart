@@ -1,6 +1,7 @@
 .cart98CartPage {
     display: flex;
     flex-direction: row;
+    margin: auto;
     margin-top: 5rem;
     min-height: 70vh;
     width: 90vw;
