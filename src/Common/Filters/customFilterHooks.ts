@@ -1,9 +1,10 @@
 import { setCategoriesList, setProductList, updateSearchValue } from "@/Store/slices/productSlice";
 import { RootState } from "@/Store/store";
-import { capitalizeFirstChar } from "@/utils/functions";
-import router from "next/router";
+import { capitalizeFirstChar, extractData } from "@/utils/functions";
+import router, { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { PrefetchedData, QueryData } from "./Types";
 
 export const useFilters = () => {
 
@@ -50,7 +51,31 @@ export const useSyncFilter = () => {
 
   const { categories, price, setPrice } = useFilters();
   const dispatch = useDispatch();
+  const { query } = useRouter();
+
+  const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>();
+
   const searchValue = useSelector((state: RootState) => state.product.searchValue);
+  
+  // set filter data from url
+  useEffect(() => {
+    const { value, sort, selectCategories, priceFilter } = query;
+    const extractedValues: QueryData = {
+      value: value,
+      sort: sort,
+      selectCategories: selectCategories,
+      priceFilter: priceFilter,
+    }
+    const { sortBy, filterCategory, urlPrice } = extractData(extractedValues);
+    setPrice(urlPrice);
+    
+    const urlData: PrefetchedData = {
+      sort: sortBy,
+      filterCategories: filterCategory,
+    }
+
+    setPrefetchedData(urlData);
+  }, [query])
 
   useEffect(() => {
     categories && dispatch(setCategoriesList(categories));
@@ -73,7 +98,6 @@ export const useSyncFilter = () => {
   const filterChanges = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-
     dispatch(setProductList([]));
     const target = new FormData(event.currentTarget);
 
@@ -92,6 +116,7 @@ export const useSyncFilter = () => {
     filterChanges,
     resetFilter,
     skeletonArray,
-    takeValue
+    takeValue,
+    prefetchedData
   }
 }

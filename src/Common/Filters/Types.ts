@@ -11,3 +11,8 @@ export type QueryData = {
     selectCategories: string | string[] | undefined;
     priceFilter: string | string[] | undefined;
 }
+
+export type PrefetchedData = {
+    sort: string | null,
+    filterCategories: Set<FormDataEntryValue>,
+}
