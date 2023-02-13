@@ -17,9 +17,11 @@ export const cart = createSlice({
       
       if (itemInCart) {
         itemInCart.quantity+= action.payload.quantity;
+        state.totalCost += (action.payload.product.price * action.payload.quantity);
       }
       else {
         state.cartProducts.push({ product: action.payload.product, quantity: action.payload.quantity });
+        state.totalCost += (action.payload.product.price * action.payload.quantity);
       }
     },
     addToCart: (state, action: PayloadAction<Product>) => {
