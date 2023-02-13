@@ -1,8 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-
-import { decode } from 'blurhash';
-import { getImgFromArr } from 'array-to-image';
 
 import { capitalizeFirstChar } from '@/utils/functions';
 import { CardProps } from './Types';
@@ -19,22 +15,18 @@ import CardPrice from './CardPrice';
 import CardSale from './CardSale';
 
 import style from './Card.module.css';
+import ImageWrapper from '../ImageWrapper';
 
 const Card = (props: CardProps) => {
     const { data, cartPage, productPage, quantity, showDescription, wishList } = props;
     const category = data?.category && capitalizeFirstChar(data?.category);
     const showCartData = cartPage && !wishList;
 
-    const imageURL = `${data?.image}`;
-
     const modifyCardProductStyle = productPage ? `${style.card75Product}` : cartPage ? `${style.card77Product}` : "";
     const modifyCardAlignment = productPage ? `${style.card45ProductDetails}` : cartPage ? `${style.card44ProductDetails}` : "";
     const cardProductWithButton = productPage ? `${style.card12ProductImageButtons}` : "";
     const modifyProductDetail = productPage ? `${style.card67ProductDescription}` : cartPage ? `${style.card67ProductDescription}` : "";
 
-    const pixels = decode(`${data?.blurhash}`, 32, 32)
-    const image = getImgFromArr(pixels, 32, 32)
-    const src = image.src;
 
     return (
         <div className={`${style.card54Product} ${modifyCardProductStyle}`}> {
@@ -44,7 +36,7 @@ const Card = (props: CardProps) => {
                         <CardBookmark data={data} />
                         <CardSale data={data} />
                         <div className={`${style.card89ImageHolder} ${cardProductWithButton}`}>
-                            <Image src={imageURL} alt={data.title} placeholder="blur" blurDataURL={src} unoptimized={true} width={100} height={100} />
+                            <ImageWrapper data={data} />
                             <CardButtons check={productPage} data={data} />
                         </div>
                     </div>
