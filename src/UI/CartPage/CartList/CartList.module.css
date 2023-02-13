@@ -13,6 +13,7 @@
 }
 
 .cart43CartItems {
+    margin: 1rem 0;
     background-color: var(--light-background);
     box-shadow: var(--box-shadow);
 }

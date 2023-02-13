@@ -7,6 +7,7 @@
     justify-content: center;
     margin: 1rem 0.6rem;
     background-color: var(--light-background);
+    overflow: hidden;
 }
 
 .card54Product:hover {
@@ -21,6 +22,7 @@
     display: flex;
     justify-content: center;
     max-height: 100%;
+    overflow: visible;
 }
 
 .card75Product:hover {
@@ -55,10 +57,14 @@
     flex-direction: row;
 }
 
+.card89ImageHolder {
+    margin: auto;
+}
+
 .card44ProductDetails
 .card89ImageHolder img {
     height: 20rem;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .card12ProductImageButtons {
