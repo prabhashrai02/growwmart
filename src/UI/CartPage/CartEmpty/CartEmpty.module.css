@@ -1,5 +1,5 @@
 .cartempty56EmptyBox {
-    width: var(--max-width);
+    width: 40rem;
     height: 10rem;
     display: flex;
     text-align: center;
@@ -7,6 +7,6 @@
     justify-content: center;
     padding: 1rem;
 
-    background-color: var(--light-background);
     max-width: var(--max-width);
+    background-color: var(--light-background);
 }
