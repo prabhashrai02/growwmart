@@ -1,31 +1,21 @@
-import Button from '@/Common/Button';
 import React from 'react';
-import { CardCartDataProps } from './Types';
-import style from './CardCartQuantity.module.css';
 import { useDispatch } from 'react-redux';
-import { addToCart, decreaseQuantity, removeItem } from '@/Store/slices/cartSlice';
 import Image from 'next/image';
+
+import { useFunctions } from './useFunctions';
+import { removeItem } from '@/Store/slices/cartSlice';
+import { CardCartDataProps } from './Types';
+
+import Button from '@/Common/Button';
+
 import add from '@/Assets/plus.svg';
 import minus from '@/Assets/minus.svg';
 
-const CardCartQuantity = (props: CardCartDataProps) => {
+import style from './CardCartQuantity.module.css';
+
+const CardCartQuantity = ({ check, quantity, data }: CardCartDataProps) => {
     const dispatch = useDispatch();
-
-    const { check, quantity, data} = props;
-
-    const handelClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        event.preventDefault();
-    }
-
-    const handleAdd = () => {
-        dispatch(addToCart(data));
-    }
-
-    const handleRemove = () => {
-        if (quantity && quantity > 1) dispatch(decreaseQuantity(data));
-        else dispatch(removeItem(data));
-    }
-
+    const { handelClick, handleAdd, handleRemove } = useFunctions(quantity, data);
 
     return (
         <div>
@@ -38,7 +28,7 @@ const CardCartQuantity = (props: CardCartDataProps) => {
                             <Image src={minus} alt='reduce quantity' onClick={() => handleRemove()} />
                         </div>
 
-                        <Button value='Remove Item' className='' func={() => dispatch(removeItem(data))}/>
+                        <Button value='Remove Item' className='' func={() => dispatch(removeItem(data))} />
                     </div>
                 )
             }

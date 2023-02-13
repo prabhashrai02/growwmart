@@ -1,9 +1,10 @@
 import React from 'react';
-import style from './CardSkeleton.module.css';
+
 import { CardSkeletonProps } from './Types';
 
-const CardSkeleton = (props: CardSkeletonProps) => {
-  const { productPage } = props;
+import style from './CardSkeleton.module.css';
+
+const CardSkeleton = ({ productPage }: CardSkeletonProps) => {
 
   return (
     <div>
@@ -28,7 +29,7 @@ const CardSkeleton = (props: CardSkeletonProps) => {
               <div className={style.card98ProductPriceRating}>
                 <span className={style.skeleton_loader_background}></span>
               </div>
-                <span className={`${style.skeleton_loader_background} ${style.skeleton21Offer}`}></span>
+              <span className={`${style.skeleton_loader_background} ${style.skeleton21Offer}`}></span>
             </div>
           </div>
         )

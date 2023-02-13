@@ -1,12 +1,14 @@
 import React from 'react';
 
-import style from './CardPrice.module.css';
 import { CardPriceProps } from './Types';
+
+import style from './CardPrice.module.css';
 
 const CardPrice = ({ data }: CardPriceProps) => {
 
     const givenPrice = data.price;
     const value = givenPrice >= 100 ? ((givenPrice / 4) * 5).toFixed(2) : "";
+
     return (
         <div className={style.cart70BothPrice}>
             <span className={style.cart78ProductPrice}><h4>&#x20b9; {givenPrice} </h4></span>

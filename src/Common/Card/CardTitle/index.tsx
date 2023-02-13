@@ -1,12 +1,11 @@
-import { TitleProps } from './Types';
 import React from 'react';
+
 import Ellipsis from '../../Ellipsis';
+import { TitleProps } from './Types';
+
 import style from './CardTitle.module.css';
 
-const CardTitle = (props: TitleProps) => {
-    const productPage = props.productPage;
-    const cartPage = props.cartPage;
-    const title = props.title;
+const CardTitle = ({ productPage, cartPage, title }: TitleProps) => {
 
     return (
         <div className={style.card45CardTitle}>

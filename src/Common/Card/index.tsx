@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { capitalizeFirstChar } from '@/utils/functions';
-import { CardProps } from './Types';
+import { getModifiedClasses } from './function';
+import { CardProps, GetModifiedClassesProps } from './Types';
 
 import CardTitle from './CardTitle';
 import CardButtons from './CardButtons';
@@ -15,20 +15,20 @@ import CardPrice from './CardPrice';
 import CardSale from './CardSale';
 
 import style from './Card.module.css';
-import dynamic from 'next/dynamic';
 
 const Card = (props: CardProps) => {
 
-    const ImageWrapper = dynamic(() => import("../ImageWrapper"), { ssr: false });
-
     const { data, cartPage, productPage, quantity, showDescription, wishList } = props;
-    const category = data?.category && capitalizeFirstChar(data?.category);
-    const showCartData = cartPage && !wishList;
 
-    const modifyCardProductStyle = productPage ? `${style.card75Product}` : cartPage ? `${style.card77Product}` : "";
-    const modifyCardAlignment = productPage ? `${style.card45ProductDetails}` : cartPage ? `${style.card44ProductDetails}` : "";
-    const cardProductWithButton = productPage ? `${style.card12ProductImageButtons}` : "";
-    const modifyProductDetail = productPage ? `${style.card67ProductDescription}` : cartPage ? `${style.card67ProductDescription}` : "";
+    const cardDetails: GetModifiedClassesProps = {
+        data: data,
+        productPage: productPage,
+        cartPage: cartPage,
+        wishList: wishList
+    }
+
+    const { ImageWrapper, category, showCartData, modifyCardProductStyle,
+        modifyCardAlignment, cardProductWithButton, modifyProductDetail } = getModifiedClasses(cardDetails);
 
     return (
         <div className={`${style.card54Product} ${modifyCardProductStyle}`}> {
@@ -36,7 +36,7 @@ const Card = (props: CardProps) => {
                 <div className={`${style.card23ProductDetails} ${modifyCardAlignment}`}>
                     <div className={style.card12SaleBookmark}>
                         <CardBookmark data={data} />
-                        <CardSale data={data} />
+                        <CardSale price={data.price} />
                         <div className={`${style.card89ImageHolder} ${cardProductWithButton}`}>
                             <ImageWrapper imageSrc={data.image} alt={data.title} blurHash={data.blurhash} />
                             <CardButtons check={productPage} data={data} />
@@ -50,8 +50,8 @@ const Card = (props: CardProps) => {
                             <CardPrice data={data} />
                             <CardRating data={data.rating} />
                         </div>
-                        <CardDesc check={showDescription} data={data.description} />
-                        <CardProductOffers check={productPage} />
+                        <CardDesc showDescription={showDescription} description={data.description} />
+                        <CardProductOffers showData={productPage} />
                         <CardCartQuantity check={showCartData} quantity={quantity} data={data} />
                         <CardWishListButton check={wishList} data={data} />
                     </div>

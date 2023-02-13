@@ -1,16 +1,17 @@
 import React from 'react';
+
 import { CardDescProps } from './Types';
+
 import style from './CardDesc.module.css';
 
 const CardDesc = (props: CardDescProps) => {
-    const productPage = props.check;
-    const description = props.data;
+    const { showDescription, description } = props;
 
     return (
         <div>
 
             {
-                productPage && (
+                showDescription && (
                     <div className={style.cardDesc90Para}>
                         <br></br>
                         <p>{description}</p>

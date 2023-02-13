@@ -1,3 +1,3 @@
 export type CardProductOfferProps = {
-    check: boolean | undefined,
+    showData: boolean | undefined,
 }

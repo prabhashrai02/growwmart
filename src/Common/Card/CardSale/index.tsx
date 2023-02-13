@@ -1,12 +1,15 @@
-import React from 'react'
-import style from './CardSale.module.css';
+import React from 'react';
 import Image from 'next/image';
-import sale from '@/Assets/sale.svg';
+
 import { CardSaleProps } from './Types';
 
-const CardSale = ({data} : CardSaleProps) => {
+import sale from '@/Assets/sale.svg';
 
-  const saleStyle = data.price < 100 ? `${style.card21ShowSale}` : ``;
+import style from './CardSale.module.css';
+
+const CardSale = ({ price } : CardSaleProps) => {
+
+  const saleStyle = price < 100 ? `${style.card21ShowSale}` : ``;
 
     return (
         <div className={style.card90Sale}>

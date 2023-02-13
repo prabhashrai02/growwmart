@@ -1,11 +1,13 @@
 import React from 'react'
-import { CardProductOfferProps } from './Types';
-import offer from '@/Assets/offer.png';
-import style from './CardProductOffers.module.css';
 import Image from 'next/image';
 
-const CardProductOffers = (props: CardProductOfferProps) => {
-  const showData = props.check;
+import { CardProductOfferProps } from './Types';
+
+import offer from '@/Assets/offer.png';
+
+import style from './CardProductOffers.module.css';
+
+const CardProductOffers = ({ showData }: CardProductOfferProps) => {
 
   return (
     <div className={style.offer47Container}>
@@ -40,7 +42,6 @@ const CardProductOffers = (props: CardProductOfferProps) => {
           <h4>
             2,00,000+ Happy Customers
           </h4>
-
         </div>
       }
     </div>

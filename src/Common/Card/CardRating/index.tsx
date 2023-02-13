@@ -1,10 +1,12 @@
 import React from 'react';
-import style from './CardRating.module.css';
-import star from '@/Assets/star.png';
+
 import { CardRatingProps } from './Types';
 
-const CardRating = (props: CardRatingProps) => {
-    const data = props.data;
+import star from '@/Assets/star.png';
+
+import style from './CardRating.module.css';
+
+const CardRating = ({ data }: CardRatingProps) => {
 
     return (
         <div className={style.card09Rating}>

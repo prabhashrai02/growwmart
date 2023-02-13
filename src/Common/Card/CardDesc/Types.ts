@@ -1,4 +1,4 @@
 export type CardDescProps = {
-    check: boolean | undefined;
-    data: string;
+    showDescription: boolean | undefined;
+    description: string;
 }

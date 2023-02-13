@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import { CardButtonProps } from './Types';
 import { useCardButtons } from './useCardButton';
@@ -10,6 +10,7 @@ import style from './CardButtons.module.css';
 const CardButtons = (props: CardButtonProps) => {
 
     const { check, quantity, handleQuantity, handelClick, addQuantity, buyNow } = useCardButtons(props);
+
     return (
         <div>
             {
