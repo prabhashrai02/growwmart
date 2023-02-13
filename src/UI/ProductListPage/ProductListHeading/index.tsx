@@ -13,7 +13,7 @@ const ProductListHeading = () => {
     const { pathname, query } = useRouter();
     const { value, sort, selectCategories, priceFilter } = query;
 
-    const showProducts = useSelector((state: RootState) => state.product.showList);
+    const productList = useSelector((state: RootState) => state.product.productList);
 
     const extractedValues: QueryData = {
         value: value,
@@ -85,7 +85,7 @@ const ProductListHeading = () => {
 
                     {
                         <span>
-                            Showing <strong> {showProducts?.length} </strong> results
+                            Showing <strong> {productList?.length} </strong> results
                         </span>
                     }
                 </>

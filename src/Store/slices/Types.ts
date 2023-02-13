@@ -11,8 +11,7 @@ export type WishState = {
 }
 
 export type ProductState = {
-    productList: Product[],
-    showList: Product[] | null,
+    productList: Product[] | null,
     searchValue: string,
     categories: string[],
 }

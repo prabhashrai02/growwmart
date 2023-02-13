@@ -15,7 +15,6 @@ import style from './ProductListPage.module.css';
 
 const ProductListPage = ({ data }: ProductListProps) => {
 
-  const showProducts = useSelector((state: RootState) => state.product.showList);
   const showSkeleton = [1, 2, 3, 4, 5, 6];
   const dispatch = useDispatch();
 
@@ -31,21 +30,21 @@ const ProductListPage = ({ data }: ProductListProps) => {
           <ProductListHeading />
           <div className={style.productlist41allProducts}>
             {
-              showProducts && showProducts.length ?
-                showProducts.map((item, index): ReactNode => {
-                  return (
-                    <Link key={index} href={`../product/${item?.id}`}>
-                      <Card data={item} />
-                    </Link>
-                  )
-                })
-                :
-                data ?
+              data ?
+                data.length ?
+                  data.map((item, index): ReactNode => {
+                    return (
+                      <Link key={index} href={`../product/${item?.id}`}>
+                        <Card data={item} />
+                      </Link>
+                    )
+                  })
+                  :
                   showSkeleton.map((_, index): ReactNode => {
                     return <CardSkeleton key={index} />
                   })
-                  :
-                  <div className={style.product79EmptyList}>No result match your criteria</div>
+                :
+                <div className={style.product79EmptyList}>No result match your criteria</div>
             }
           </div>
         </div>
