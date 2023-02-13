@@ -12,13 +12,13 @@ const ProdutFeatured = () => {
       <h2>Featured in</h2>
       <div className={style.product67allFeatured}>
         <div className={style.product45ImageHolder}>
-          <Image loader={() => buzzfeed} src={buzzfeed} alt={'buzzfeed'} width={100} height={100} />
+          <Image loader={() => buzzfeed} src={buzzfeed} unoptimized={true} alt={'buzzfeed'} width={100} height={100} />
         </div>
         <div className={style.product45ImageHolder}>
-          <Image loader={() => gq} src={gq} alt={'gq'} width={100} height={100} />
+          <Image loader={() => gq} src={gq} unoptimized={true} alt={'gq'} width={100} height={100} />
         </div>
         <div className={style.product45ImageHolder}>
-          <Image loader={() => vogue} src={vogue} alt={'vogue'} width={100} height={100} />
+          <Image loader={() => vogue} src={vogue} unoptimized={true} alt={'vogue'} width={100} height={100} />
         </div>
       </div>
     </div>
