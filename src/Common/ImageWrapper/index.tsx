@@ -3,7 +3,10 @@ import Image from 'next/image';
 import { decode } from 'blurhash';
 // @ts-ignore
 import { getImgFromArr } from 'array-to-image';
+
 import { ImageWrapperProps } from './Types';
+
+import style from './ImageWrapper.module.css';
 
 const ImageWrapper = ({ imageSrc, alt, blurHash }: ImageWrapperProps) => {
   const imageURL = `${imageSrc}`;
@@ -25,7 +28,7 @@ const ImageWrapper = ({ imageSrc, alt, blurHash }: ImageWrapperProps) => {
         typeof window !== "undefined" ?
           <Image src={imageURL} alt={alt} placeholder="blur" blurDataURL={blurImageSrc} unoptimized={true} width={100} height={100} />
           :
-          <Image src={imageURL} alt={alt} unoptimized={true} width={100} height={100} />
+          <img className={style.imageWrapper1Dummy} src={imageURL} alt={alt} />
 
       }
     </>

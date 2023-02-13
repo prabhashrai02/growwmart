@@ -15,9 +15,12 @@ import CardPrice from './CardPrice';
 import CardSale from './CardSale';
 
 import style from './Card.module.css';
-import ImageWrapper from '../ImageWrapper';
+import dynamic from 'next/dynamic';
 
 const Card = (props: CardProps) => {
+
+    const ImageWrapper = dynamic(() => import("../ImageWrapper"), { ssr: false });
+
     const { data, cartPage, productPage, quantity, showDescription, wishList } = props;
     const category = data?.category && capitalizeFirstChar(data?.category);
     const showCartData = cartPage && !wishList;
@@ -26,7 +29,6 @@ const Card = (props: CardProps) => {
     const modifyCardAlignment = productPage ? `${style.card45ProductDetails}` : cartPage ? `${style.card44ProductDetails}` : "";
     const cardProductWithButton = productPage ? `${style.card12ProductImageButtons}` : "";
     const modifyProductDetail = productPage ? `${style.card67ProductDescription}` : cartPage ? `${style.card67ProductDescription}` : "";
-
 
     return (
         <div className={`${style.card54Product} ${modifyCardProductStyle}`}> {
