@@ -13,11 +13,17 @@
 }
 
 .cart43CartItems {
-    width: 60%;
+    width: 80%;
 
     margin: 1rem 0;
     background-color: var(--light-background);
     box-shadow: var(--box-shadow);
+}
+
+@media (min-width: 2000px) {
+    .cart43CartItems {
+        width: 50%;
+    }
 }
 
 @media (max-width: 1024px) {
