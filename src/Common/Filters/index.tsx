@@ -13,7 +13,7 @@ const Filters = () => {
   const [hideMenu, sethideMenu] = useState(`${style.filter63HideMenu}`);
   const handleHamburger = () => {
     if (hideMenu === `${style.filter63HideMenu}`) {
-      sethideMenu(``);
+      sethideMenu(`${style.filter63ShowMenu}`);
     }
     else {
       sethideMenu(`${style.filter63HideMenu}`);
@@ -42,7 +42,7 @@ const Filters = () => {
             <h4 className={style.filters31SortType}>By Name</h4>
             <div className={style.sort91Radios}>
               <div>
-                <input readOnly type="radio" id='asc' value="asc" name='sort' checked={prefetchedData?.sort === "asc"} onChange={() => {}} /> <label htmlFor='asc' >Ascending</label>
+                <input readOnly type="radio" id='asc' value="asc" name='sort' checked={prefetchedData?.sort === "asc"} onChange={() => { }} /> <label htmlFor='asc' >Ascending</label>
               </div>
               <div>
                 <input readOnly type="radio" id='dec' value="dec" name='sort' checked={prefetchedData?.sort === "dec"} /> <label htmlFor='dec' >Descending</label>

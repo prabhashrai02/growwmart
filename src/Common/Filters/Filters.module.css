@@ -18,25 +18,33 @@
     display: flex;
     position: relative;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    align-items: flex-start;
 }
 
 .filter56TopButtons {
     display: flex;
     position: absolute;
+    top: 0;
     right: 0;
     flex-direction: column;
+}
+
+.filter56TopButtons input {
+    margin-top: 1rem;
 }
 
 .filter45HamburgerButon {
     display: none;
     padding: 0.3rem 0.5rem;
-    margin-bottom: 1rem;
     min-width: 3rem;
 }
 
 .filter63HideMenu {
     display: block;
+}
+
+.filter63ShowMenu {
+    margin-top: 1rem;
 }
 
 .filters31SortType {
@@ -85,7 +93,8 @@
 
 @media (max-width: 768px) {
     .filters90TitleWithReset {
-        /* padding: 1rem; */
+        display: flex;
+        align-items: center;
     }
 
     .filters76Sidebar {
@@ -105,9 +114,11 @@
         display: none;
     }
 }
+
 @media (max-width: 425px) {
     .filters76Sidebar {
         width: 25rem;
+        border-radius: 0.5rem;
     }
 }
 
