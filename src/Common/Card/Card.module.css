@@ -59,6 +59,8 @@
 
 .card89ImageHolder {
     margin: auto;
+    min-width: min(20rem, 85vw);
+    min-height: 25rem;
 }
 
 .card44ProductDetails
