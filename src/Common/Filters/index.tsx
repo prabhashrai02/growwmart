@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 
 import { useSyncFilter } from './customFilterHooks';
 
@@ -8,20 +8,8 @@ import style from './Filters.module.css';
 
 const Filters = () => {
 
-  const { categories, price, filterChanges, resetFilter, skeletonArray, takeValue, prefetchedData } = useSyncFilter();
-
-  const [styleMenu, setStyleMenu] = useState(`${style.filter63HideMenu}`);
-  const [menuHidden, setMenuHidden] = useState(true);
-  const handleHamburger = () => {
-    if (styleMenu === `${style.filter63HideMenu}`) {
-      setStyleMenu(`${style.filter63ShowMenu}`);
-      setMenuHidden(false)
-    }
-    else {
-      setStyleMenu(`${style.filter63HideMenu}`);
-      setMenuHidden(true)
-    }
-  }
+  const { categories, price, filterChanges, resetFilter, skeletonArray,
+    takeValue, prefetchedData, menuHidden, styleMenu, handleHamburger } = useSyncFilter();
 
   return (
     <form id="filter" onChange={(e) => filterChanges(e)} onReset={() => resetFilter()}>
