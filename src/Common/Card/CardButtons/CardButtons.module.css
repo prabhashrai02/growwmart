@@ -28,6 +28,55 @@
     padding: 1rem;
 }
 
+
+.input14Number {
+
+    width: 5rem;
+    padding: 0 1rem;
+    vertical-align: top;
+    text-align: center;
+    outline: none;
+}
+
+.input14Number,
+.input234NumberDecrement,
+.input34NumberIncrement {
+    border: 0.1rem solid #ccc;
+    height: 2.5rem;
+    user-select: none;
+}
+
+.input234NumberDecrement,
+.input34NumberIncrement {
+
+    display: inline-block;
+    width: 2rem;
+    line-height: 2.2rem;
+    background: #f1f1f1;
+    color: #444;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.input234NumberDecrement:active,
+.input34NumberIncrement:active {
+    background: #ddd;
+}
+
+
+.input234NumberDecrement {
+    border-right: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.input34NumberIncrement {
+    border-left: none;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+
 @media (max-width: 425px) {
     .card98Buttons {
         justify-content: space-around;

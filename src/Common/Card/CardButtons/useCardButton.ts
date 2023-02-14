@@ -13,6 +13,16 @@ export const useCardButtons = (props: CardButtonProps) => {
     const [quantity, setQuantity] = useState(1);
     const { check, data } = props;
 
+    const increaseQuantity = () => {
+        setQuantity(quantity+1);
+    }
+
+    const decreaseQuantity = () => {
+        if (quantity > 1) {
+            setQuantity(quantity-1);
+        }
+    }
+
     const handleQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
         const enteredNumber = Number(event.currentTarget.value);
 
@@ -55,6 +65,8 @@ export const useCardButtons = (props: CardButtonProps) => {
         handleQuantity,
         handelClick,
         addQuantity,
-        buyNow
+        buyNow,
+        increaseQuantity,
+        decreaseQuantity
     }
 }
