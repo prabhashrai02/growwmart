@@ -46,6 +46,8 @@ export const getServerSideProps: GetServerSideProps<{ product: Product }> = asyn
     const result = await fetch(`${process.env.BASE_URL}/api/products/${productId}`);
     const product = await result.json();
 
+    if (product === "Not Found") throw product;
+
     return {
       props: {
         product,
