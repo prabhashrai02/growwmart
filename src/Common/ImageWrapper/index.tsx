@@ -29,7 +29,7 @@ const ImageWrapper = ({ imageSrc, alt, blurHash }: ImageWrapperProps) => {
         typeof window !== "undefined" ?
           <Image src={imageURL} alt={alt} placeholder="blur" blurDataURL={blurImageSrc} unoptimized={true} width={100} height={100} />
           :
-          <img src={imageURL} alt={alt} width={100} height={100} />
+          <img src={imageURL} alt={alt} className={style.imageWrapper1Dummy} />
 
       }
     </>
