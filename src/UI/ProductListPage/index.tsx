@@ -1,9 +1,8 @@
 import React, { ReactNode, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 
 import { setProductList } from '@/Store/slices/productSlice';
-import { RootState } from '@/Store/store';
 import { ProductListProps } from './Types';
 
 import Card from '@/Common/Card';
@@ -12,6 +11,7 @@ import Filters from '@/Common/Filters';
 import ProductListHeading from './ProductListHeading';
 
 import style from './ProductListPage.module.css';
+import Head from 'next/head';
 
 const ProductListPage = ({ data }: ProductListProps) => {
 
@@ -25,6 +25,12 @@ const ProductListPage = ({ data }: ProductListProps) => {
   return (
     <>
       <div className={style.productlist43page}>
+        <Head>
+          <title>
+            All Products
+          </title>
+        </Head>
+
         <Filters />
         <div className={style.product23All}>
           <ProductListHeading />

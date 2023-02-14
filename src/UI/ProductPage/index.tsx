@@ -1,15 +1,26 @@
+import Head from 'next/head';
+import { GetServerSideProps } from 'next';
+
+import { Product, ProductPageProp } from './Types';
+
 import Card from '@/Common/Card';
 import CardSkeleton from '@/Common/Card/CardSkeleton';
-import { GetServerSideProps } from 'next';
 import ProdutFeatured from './ProductFeatured';
-import style from './ProductPage.module.css';
 import ProductPath from './ProductPath';
-import { Product, ProductPageProp } from './Types';
+
+import style from './ProductPage.module.css';
 
 const ProductPage = ({ product }: ProductPageProp) => {
 
   return (
     <div className={style.product34ProductPage}>
+      <Head>
+        <title>
+          {product.title}
+        </title>
+        <meta content={product.description} />
+      </Head>
+
       <ProductPath product={product} />
       <div className={style.product67CardContainer}>
         {
