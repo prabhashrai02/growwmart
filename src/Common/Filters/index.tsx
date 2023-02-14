@@ -10,13 +10,16 @@ const Filters = () => {
 
   const { categories, price, filterChanges, resetFilter, skeletonArray, takeValue, prefetchedData } = useSyncFilter();
 
-  const [hideMenu, sethideMenu] = useState(`${style.filter63HideMenu}`);
+  const [styleMenu, setStyleMenu] = useState(`${style.filter63HideMenu}`);
+  const [menuHidden, setMenuHidden] = useState(true);
   const handleHamburger = () => {
-    if (hideMenu === `${style.filter63HideMenu}`) {
-      sethideMenu(`${style.filter63ShowMenu}`);
+    if (styleMenu === `${style.filter63HideMenu}`) {
+      setStyleMenu(`${style.filter63ShowMenu}`);
+      setMenuHidden(false)
     }
     else {
-      sethideMenu(`${style.filter63HideMenu}`);
+      setStyleMenu(`${style.filter63HideMenu}`);
+      setMenuHidden(true)
     }
   }
 
@@ -27,15 +30,15 @@ const Filters = () => {
           <h2>Filters</h2>
           <div className={style.filter56TopButtons}>
             {
-              hideMenu.length ?
-                <Button value="&#9660;" type="button" className={style.filter45HamburgerButon} func={() => handleHamburger()} />
+              menuHidden ?
+                <Button value="&#9661;" type="button" className={style.filter45HamburgerButon} func={() => handleHamburger()} />
                 :
-                <Button value="&#9650;" type="button" className={style.filter45HamburgerButon} func={() => handleHamburger()} />
+                <Button value="&#9651;" type="button" className={style.filter45HamburgerButon} func={() => handleHamburger()} />
             }
-            <input type='Reset' className={`${style.filters65Buttons} ${hideMenu}`} />
+            <input type='Reset' className={`${style.filters65Buttons} ${styleMenu}`} />
           </div>
         </div>
-        <div className={hideMenu}>
+        <div className={styleMenu}>
           <div className={style.filters65Sort}>
             <h3>Sort</h3>
 
