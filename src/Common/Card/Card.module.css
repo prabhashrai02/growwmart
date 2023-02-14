@@ -32,6 +32,7 @@
 .card77Product {
     background: none;
     width: fit-content;
+    margin: auto;
     box-shadow: none;
     max-height: 100%;
     display: flex;
@@ -55,6 +56,10 @@
 
 .card44ProductDetails {
     flex-direction: row;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-around;
 }
 
 .card89ImageHolder {
@@ -71,6 +76,7 @@
 
 .card12ProductImageButtons {
     min-width: 30vw;
+    min-height: 25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,7 +105,7 @@
 }
 
 .card67ProductDescription {
-    width: 30rem;
+    width: 50%;
     margin-left: 1rem;
 }
 
@@ -111,6 +117,11 @@
 
 .card12SaleBookmark {
     position: relative;
+}
+
+.card44ProductDetails
+.card89ImageHolder {
+    min-height: 100%;
 }
 
 @media (max-width: 768px) {

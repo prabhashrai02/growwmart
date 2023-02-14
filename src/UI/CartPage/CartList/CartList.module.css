@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .cart12Head {
@@ -12,12 +13,24 @@
 }
 
 .cart43CartItems {
+    width: 60%;
+
     margin: 1rem 0;
     background-color: var(--light-background);
     box-shadow: var(--box-shadow);
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1024px) {
+
+    .cart43CartItems {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart43CartItems {
+        width: var(--max-width);
+    }
     .cart34Box {
         padding: 0;
     }
