@@ -1,4 +1,5 @@
 import Head from 'next/head';
+
 import { GetServerSideProps } from 'next/types';
 
 export default function Home() {
