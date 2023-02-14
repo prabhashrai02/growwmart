@@ -75,7 +75,7 @@ const ProductListHeading = () => {
                                 {
                                     urlPrice &&
                                     <span>
-                                        <strong>Price : &nbsp; </strong> "{urlPrice}"
+                                        <strong>Price : &nbsp; </strong> &#x20b9;{urlPrice}
                                     </span>
                                 }
                             </>
