@@ -132,6 +132,8 @@
 
     .card45ProductDetails {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .card67ProductDescription {
