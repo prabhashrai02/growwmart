@@ -8,7 +8,7 @@ import { Product } from "@/UI/ProductPage/Types";
 export const useBookmark = (data: Product) => {
     const wishList = useSelector((state: RootState) => state.wish.wishList);
     const dispatch = useDispatch();
-    const [bookmark, setBookmark] = useState("#000000");
+    const [bookmark, setBookmark] = useState("#dcdada");
   
     useEffect(() => {
       wishList.forEach((item) => {
@@ -22,7 +22,7 @@ export const useBookmark = (data: Product) => {
       event.preventDefault();
   
       if (bookmark === "#c24443") {
-        setBookmark("#000000")
+        setBookmark("#dcdada")
       }
       else {
         setBookmark("#c24443")
