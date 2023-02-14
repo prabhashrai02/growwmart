@@ -16,9 +16,9 @@ const CartCheckout = () => {
         <div className={style.cart90Price}>
             <h3 className={style.cart80Heading}>Cart Summary</h3>
             {
-                cartProducts.map((item) => {
+                cartProducts.map((item, index) => {
                     return (
-                        <div className={style.cart24Summary}>
+                        <div className={style.cart24Summary} key={index}>
                             <div>
                                 <p>{item.product.title}</p>
                                 <p><b>Qnt: {item.quantity}</b></p>
