@@ -53,21 +53,21 @@ export const useSyncFilter = () => {
 
   const { categories, price, setPrice } = useFilters();
   const dispatch = useDispatch();
-  const { query } = useRouter();
+  const { query, pathname } = useRouter();
 
   const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>();
 
   const searchValue = useSelector((state: RootState) => state.product.searchValue);
   
+  const { value, sort, selectCategories, priceFilter } = query;
+  const extractedValues: QueryData = {
+    value: value,
+    sort: sort,
+    selectCategories: selectCategories,
+    priceFilter: priceFilter,
+  }
   // set filter data from url
   useEffect(() => {
-    const { value, sort, selectCategories, priceFilter } = query;
-    const extractedValues: QueryData = {
-      value: value,
-      sort: sort,
-      selectCategories: selectCategories,
-      priceFilter: priceFilter,
-    }
     const { sortBy, filterCategory, urlPrice } = extractData(extractedValues);
     setPrice(urlPrice);
     
@@ -85,16 +85,22 @@ export const useSyncFilter = () => {
 
   const skeletonArray = [1, 2, 3, 4];
 
-
   const takeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.currentTarget.value);
     value && setPrice(value * 10);
   }
 
   const resetFilter = () => {
-    dispatch(setProductList([]));
-    dispatch(updateSearchValue(''));
-    router.push(`search?value=&sort=&selectCategories=&priceFilter=${1000}`);
+    const searched = value || sort || selectCategories || (priceFilter !== "1000");
+
+    if ( searched && (pathname === "/search")) {
+      dispatch(setProductList([]));
+      dispatch(updateSearchValue(''));
+      router.push(`search?value=&sort=&selectCategories=&priceFilter=${1000}`);
+    }
+    else {
+      return;
+    }
   }
 
   const filterChanges = (event: React.FormEvent<HTMLFormElement>) => {
