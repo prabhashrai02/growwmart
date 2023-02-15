@@ -10,7 +10,7 @@
     width: 2rem;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 767px) {
     .card87Bookmark {
         left: 0.5rem;
     }
