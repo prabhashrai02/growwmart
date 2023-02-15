@@ -27,16 +27,16 @@
     position: absolute;
     top: 0;
     justify-content: space-evenly;
-    width: 70%;
-    min-width: 21rem;
+    width: 75%;
+    /* min-width: 21rem; */
     padding: 1rem;
     background-color: var(--light-background);
     z-index: 1;
 }
 
 .cart12SwitchButton {
-    width: 45%;
-    min-width: 9.5rem;
+    width: 49%;
+    /* min-width: 9.5rem; */
 }
 
 .active56Button {
@@ -51,12 +51,18 @@
         align-items: center;
     }
     .cart98CartChekout {
-        width: 75%;
+        width: var(--max-width);
+    }
+    .cart23SwitchButtons {
+        width: var(--max-width);
     }
 }
 
 @media (max-width: 425px) {
     .cart98CartChekout {
         width: 100%;
+    }
+    .cart23SwitchButtons {
+        width: var(--max-width);
     }
 }

@@ -11,19 +11,19 @@ import style from './CartPage.module.css';
 const CartPage = () => {
 
     const [showCart, setShowCart] = useState(true);
-    const [showingCartStyle, setShowingCartStyle] = useState(`${style.active56Button}`);
-    const [showingWishStyle, setShowingWishStyle] = useState("");
+    const [showingCartStyle, setShowingCartStyle] = useState("");
+    const [showingWishStyle, setShowingWishStyle] = useState(`${style.active56Button}`);
 
     const handleShowCart = () => {
         setShowCart(true);
-        setShowingCartStyle(`${style.active56Button}`);
-        setShowingWishStyle("");
+        setShowingCartStyle("");
+        setShowingWishStyle(`${style.active56Button}`);
     }
 
     const handleShowWishList = () => {
         setShowCart(false);
-        setShowingCartStyle("");
-        setShowingWishStyle(`${style.active56Button}`);
+        setShowingCartStyle(`${style.active56Button}`);
+        setShowingWishStyle("");
     }
 
     return (
