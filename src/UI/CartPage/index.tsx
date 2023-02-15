@@ -4,9 +4,9 @@ import Head from 'next/head';
 import CartCheckout from './CartCheckout';
 import CartList from './CartList';
 import WishList from './WishList';
+import Button from '@/Common/Button';
 
 import style from './CartPage.module.css';
-import Button from '@/Common/Button';
 
 const CartPage = () => {
 

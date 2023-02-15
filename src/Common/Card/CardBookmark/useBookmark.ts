@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateWishList } from "@/Store/slices/wishSlice";
 import { RootState } from "@/Store/store";
 import { Product } from "@/UI/ProductPage/Types";
+import { toast } from "react-toastify";
 
 export const useBookmark = (data: Product) => {
     const wishList = useSelector((state: RootState) => state.wish.wishList);
@@ -22,10 +23,12 @@ export const useBookmark = (data: Product) => {
       event.preventDefault();
   
       if (bookmark === "#c24443") {
-        setBookmark("#dcdada")
+        setBookmark("#dcdada");
+        toast(`Removed ${data.title} from Wishlist.`);
       }
       else {
-        setBookmark("#c24443")
+        setBookmark("#c24443");
+        toast(`Added ${data.title} to Wishlist.`);
       }
   
       dispatch(updateWishList(data));

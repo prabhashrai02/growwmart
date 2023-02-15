@@ -11,7 +11,9 @@ import 'nprogress/nprogress.css';
 import Footer from '@/Common/Footer';
 import Navbar from '@/Common/Navbar';
 
-import '@/styles/globals.css'
+import '@/styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 NProgress.configure({ showSpinner: false })
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -24,6 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Navbar />
       <Component {...pageProps} />
       <Footer />
+      <ToastContainer />
     </Provider>
   )
 }

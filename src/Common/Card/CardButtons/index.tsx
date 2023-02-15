@@ -9,7 +9,8 @@ import style from './CardButtons.module.css';
 
 const CardButtons = (props: CardButtonProps) => {
 
-    const { check, quantity, handleQuantity, handelClick, addQuantity, buyNow, increaseQuantity, decreaseQuantity} = useCardButtons(props);
+    const { check, quantity, handleQuantity, handelClick, addQuantity,
+        buyNow, increaseQuantity, decreaseQuantity} = useCardButtons(props);
 
     return (
         <div>

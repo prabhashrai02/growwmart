@@ -3,6 +3,7 @@ import { AddGivenQuantity } from "@/Store/slices/Types";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { CardButtonProps } from "./Types";
 
 export const useCardButtons = (props: CardButtonProps) => {
@@ -46,6 +47,7 @@ export const useCardButtons = (props: CardButtonProps) => {
         };
 
         dispatch(addGivenQuantity(addGiven));
+        toast(`Added ${quantity} ${data.title} in Cart.`);
     }
 
     const buyNow = () => {
@@ -56,6 +58,7 @@ export const useCardButtons = (props: CardButtonProps) => {
 
         const cartURL = '../cart';
         router.push(cartURL)
+        toast(`Added ${quantity} ${data.title} in Cart.`);
         return dispatch(addGivenQuantity(addGiven));
     }
 
