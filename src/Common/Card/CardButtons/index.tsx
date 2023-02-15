@@ -18,6 +18,7 @@ const CardButtons = (props: CardButtonProps) => {
                 check && (
                     <div className={style.card80AddQuantity}>
                         <div>
+                            <h3>Quantity</h3>
                             <span className={style.input234NumberDecrement} onClick={() => decreaseQuantity()} >–</span>
                             <input className={style.input14Number} type="text" onChange={(event) => handleQuantity(event)} value={quantity} min="0" max="10" />
                             <span className={style.input34NumberIncrement} onClick={() => increaseQuantity()} >+</span>

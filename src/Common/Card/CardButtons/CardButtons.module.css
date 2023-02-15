@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.card80AddQuantity h3 {
+    margin: 0.5rem 0;
+}
+
 .card43inputQuantity {
     border-color: var(--brand);
 }
