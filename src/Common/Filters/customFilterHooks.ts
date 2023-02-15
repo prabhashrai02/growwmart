@@ -62,6 +62,8 @@ export const useSyncFilter = () => {
 
   const searchValue = useSelector((state: RootState) => state.product.searchValue);
 
+  const [usedFilter, setUsedFilter] = useState(false);
+
   const [styleMenu, setStyleMenu] = useState(`${style.filter63HideMenu}`);
   const [menuHidden, setMenuHidden] = useState(true);
   const [searchSort, setSearchSort] = useState("");
@@ -89,7 +91,9 @@ export const useSyncFilter = () => {
   }
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(() => searchProducts(), 1000)
+    if (usedFilter) {
+      timeoutRef.current = setTimeout(() => searchProducts(), 1000)
+    }
 
     return () => clearTimeout(timeoutRef.current);
   }, [price, searchSort, urlFilter])
@@ -138,6 +142,7 @@ export const useSyncFilter = () => {
   const filterChanges = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    setUsedFilter(true);
     dispatch(setProductList([]));
     const target = new FormData(event.currentTarget);
 
