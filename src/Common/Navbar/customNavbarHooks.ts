@@ -21,9 +21,12 @@ export const useNavbar = () => {
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setProductList([]));
 
-    const inputValue = event.currentTarget.value;
-    setSearchValue(inputValue);
-    setInputChanges(true);
+    const inputValue = event.currentTarget.value.trim();
+
+    if (inputValue) {
+      setSearchValue(inputValue);
+      setInputChanges(true);
+    }
   }
 
   useEffect(() => {
