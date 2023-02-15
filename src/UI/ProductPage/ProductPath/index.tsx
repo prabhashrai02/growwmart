@@ -10,8 +10,8 @@ import style from './ProductPath.module.css';
 const ProductPath = ({ product }: ProductPathProps) => {
 
     const allProductsURL = '../allproducts';
-    const productName = product?.title;
-    const category = product?.category && capitalizeFirstChar(product?.category);
+    const productName = product && product.title;
+    const category = product && product.category && capitalizeFirstChar(product.category);
     const { push } = useRouter();
 
     const goToCategory = () => {

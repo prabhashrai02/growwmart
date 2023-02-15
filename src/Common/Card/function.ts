@@ -10,7 +10,7 @@ export const getModifiedClasses = (props: GetModifiedClassesProps) => {
 
     const ImageWrapper = dynamic(() => import("../ImageWrapper"), { ssr: false });
 
-    const category = data?.category && capitalizeFirstChar(data?.category);
+    const category = data && data.category && capitalizeFirstChar(data.category);
     const showCartData = cartPage && !wishList;
 
     const modifyCardProductStyle = productPage ? `${style.card75Product}` : cartPage ? `${style.card77Product}` : "";

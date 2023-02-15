@@ -58,7 +58,7 @@ export const useSyncFilter = () => {
   const dispatch = useDispatch();
   const { query, pathname } = useRouter();
 
-  const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>();
+  const [prefetchedData, setPrefetchedData] = useState<PrefetchedData>({sort:"", filterCategories: new Set()});
 
   const searchValue = useSelector((state: RootState) => state.product.searchValue);
 

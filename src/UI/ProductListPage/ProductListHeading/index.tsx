@@ -84,8 +84,9 @@ const ProductListHeading = () => {
                     </span>
 
                     {
+                        productList &&
                         <span>
-                            Showing <strong> {productList?.length} </strong> results
+                            Showing <strong> {productList.length} </strong> results
                         </span>
                     }
                 </>

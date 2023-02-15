@@ -22,8 +22,8 @@ const WishList = () => {
                     wishList.map((item, index): ReactNode => {
                         return (
                             <div className={style.cart56WishList} key={index}>
-                                <Link href={`../product/${item?.id}`}>
-                                    <Card cartPage={true} wishList={true} data={item} key={index} />
+                                <Link href={`../product/${item.id}`}>
+                                    <Card cartPage={true} wishList={true} data={item} key={index} productPage={false} quantity={0} showDescription={false} />
                                 </Link>
                             </div>
                         )

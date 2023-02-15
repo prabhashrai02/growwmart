@@ -11,7 +11,7 @@ export const filterProductList = (productList: Product[], filterData: FilterData
     const maxPrice = filterData.priceFilter;
     const searchValue = String(filterData.searchValue);
 
-    if (categories?.size) showList = filterCategories(categories, showList, productList);
+    if (categories && categories.size) showList = filterCategories(categories, showList, productList);
 
     if (maxPrice !== undefined && maxPrice !== null) showList = filterMaxPrice(maxPrice, showList);
 
@@ -34,7 +34,7 @@ const filterCategories = (categories: Set<FormDataEntryValue>, showList: Product
 }
 
 const filterMaxPrice = (maxPrice: number, showList: Product[]): Product[] => {
-    showList = showList?.filter(item => {
+    showList = showList.filter(item => {
         return item.price <= maxPrice;
     })
 
@@ -55,7 +55,7 @@ const filterSort = (sort: string, showList: Product[]) => {
 const sortByName = (sort: string, showList: Product[]) => {
 
     if (sort === 'asc') {
-        showList?.sort(function compare(a, b) {
+        showList.sort(function compare(a, b) {
             if (a.title < b.title) {
                 return -1;
             }
@@ -66,7 +66,7 @@ const sortByName = (sort: string, showList: Product[]) => {
         });
     }
     else if (sort === 'dec') {
-        showList?.sort(function compare(a, b) {
+        showList.sort(function compare(a, b) {
             if (a.title < b.title) {
                 return 1;
             }
@@ -83,7 +83,7 @@ const sortByName = (sort: string, showList: Product[]) => {
 const sortByPrice = (sort: string, showList: Product[]) => {
 
     if (sort === 'lowHigh') {
-        showList?.sort(function compare(a, b) {
+        showList.sort(function compare(a, b) {
             if (a.price < b.price) {
                 return -1;
             }
@@ -94,7 +94,7 @@ const sortByPrice = (sort: string, showList: Product[]) => {
         });
     }
     else if (sort === 'highLow') {
-        showList?.sort(function compare(a, b) {
+        showList.sort(function compare(a, b) {
             if (a.price < b.price) {
                 return 1;
             }
@@ -111,7 +111,7 @@ const sortByPrice = (sort: string, showList: Product[]) => {
 const search = (searchValue: string, showList: Product[]) => {
     if (searchValue) {
         const searchWord = String(searchValue).trim().toLowerCase();
-        showList = showList?.filter((item) => {
+        showList = showList.filter((item) => {
             return item.title.toLowerCase().includes(searchWord) || item.category.toLowerCase().includes(searchWord);
         })
     }

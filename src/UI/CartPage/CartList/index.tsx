@@ -26,8 +26,8 @@ const CartList = () => {
           cartProduct.map((item, index): ReactNode => {
             return (
               <div className={style.cart43CartItems} key={index}>
-                <Link href={`../product/${item.product?.id}`}>
-                  <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} />
+                <Link href={`../product/${item.product.id}`}>
+                  <Card cartPage={true} data={item.product} quantity={item.quantity} key={index} productPage={false} showDescription={false} wishList={false} />
                 </Link>
               </div>
             )

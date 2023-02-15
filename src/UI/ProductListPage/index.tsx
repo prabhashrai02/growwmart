@@ -40,8 +40,8 @@ const ProductListPage = ({ data }: ProductListProps) => {
                 data.length ?
                   data.map((item, index): ReactNode => {
                     return (
-                      <Link key={index} href={`../product/${item?.id}`}>
-                        <Card data={item} />
+                      <Link key={index} href={`../product/${item.id}`}>
+                        <Card data={item} cartPage={false} productPage={false} quantity={0} showDescription={false} wishList={false} />
                       </Link>
                     )
                   })
