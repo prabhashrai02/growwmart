@@ -142,7 +142,7 @@
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 767px) {
     .card23ProductDetails {
         padding: 0;
     }
