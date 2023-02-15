@@ -18,9 +18,6 @@ const CartList = () => {
   return (
 
     <div className={style.cart34Box}>
-      <div className={style.cart12Head}>
-        <h3>Cart</h3>
-      </div>
       {
         cartSize ?
           cartProduct.map((item, index): ReactNode => {

@@ -14,9 +14,6 @@ const WishList = () => {
     const wishListSize = wishList.length;
     return (
         <div className={style.cart34Box}>
-            <div className={style.cart12Head}>
-                <h3>Wishlist</h3>
-            </div>
             {
                 wishListSize ?
                     wishList.map((item, index): ReactNode => {

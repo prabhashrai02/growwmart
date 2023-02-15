@@ -13,8 +13,36 @@
 }
 
 .cart90CartWishlist {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 80%;
+    position: relative;
 }
+
+.cart23SwitchButtons {
+    display: flex;
+    position: absolute;
+    top: 0;
+    justify-content: space-evenly;
+    width: 70%;
+    min-width: 21rem;
+    padding: 1rem;
+    background-color: var(--light-background);
+    z-index: 1;
+}
+
+.cart12SwitchButton {
+    width: 45%;
+    min-width: 9.5rem;
+}
+
+.active56Button {
+    background-color: var(--light-background);
+}
+
 @media (max-width: 768px) {
     .cart98CartPage {
         margin: auto;
