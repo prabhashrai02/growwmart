@@ -43,6 +43,7 @@ export const useNavbar = () => {
   return {
     searchValue,
     cartURL,
-    handleChangeInput
+    handleChangeInput,
+    setSearchValue
   }
 }

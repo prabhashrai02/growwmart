@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useLocalData } from '@/utils/customLocalSyncHook';
 import { useNavbar } from './customNavbarHooks';
 
+import cross from '@/Assets/cross.svg';
 import search from '@/Assets/search.svg';
 
 import style from './Navbar.module.css';
@@ -12,7 +13,7 @@ import style from './Navbar.module.css';
 const Navbar = () => {
 
   const { cartSize } = useLocalData();
-  const { searchValue, cartURL, handleChangeInput } = useNavbar();
+  const { searchValue, cartURL, handleChangeInput, setSearchValue } = useNavbar();
 
   const growwLogo = `https://groww.in/logo-groww270.png`;
 
@@ -27,7 +28,12 @@ const Navbar = () => {
 
       <div className={style.navbar98Center}>
         <input type='text' className={style.navbar85Input} value={searchValue} placeholder='Search' onChange={(event) => handleChangeInput(event)} />
-        <Image src={search} alt='search' />
+        {
+          searchValue.length ?
+          <Image src={cross} alt='remove' onClick={() => setSearchValue("")} />
+          :
+          <Image src={search} alt='search' />
+        }
       </div>
 
       <Link href={cartURL}>
