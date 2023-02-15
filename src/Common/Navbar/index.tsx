@@ -30,7 +30,7 @@ const Navbar = () => {
         <input type='text' className={style.navbar85Input} value={searchValue} placeholder='Search' onChange={(event) => handleChangeInput(event)} />
         {
           searchValue.length ?
-          <Image src={cross} alt='remove' onClick={() => setSearchValue("")} />
+          <Image src={cross} alt='remove' onClick={() => setSearchValue("")} className={style.navbar41RemoveSearch} />
           :
           <Image src={search} alt='search' />
         }

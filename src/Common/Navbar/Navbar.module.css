@@ -58,6 +58,10 @@
     outline: none;
 }
 
+.navbar41RemoveSearch {
+    cursor: pointer;
+}
+
 .navbar44Right {
     display: flex;
     flex-direction: column;
