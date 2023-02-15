@@ -1,5 +1,5 @@
 import router, { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "@/Store/store";
@@ -47,7 +47,7 @@ export const useFilters = () => {
   return {
     categories,
     price,
-    setPrice
+    setPrice,
   }
 }
 
@@ -64,6 +64,10 @@ export const useSyncFilter = () => {
 
   const [styleMenu, setStyleMenu] = useState(`${style.filter63HideMenu}`);
   const [menuHidden, setMenuHidden] = useState(true);
+  const [searchSort, setSearchSort] = useState("");
+  const [urlFilter, setURLFilter] = useState("");
+
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   const handleHamburger = () => {
     if (styleMenu === `${style.filter63HideMenu}`) {
@@ -83,6 +87,12 @@ export const useSyncFilter = () => {
     selectCategories: selectCategories,
     priceFilter: priceFilter,
   }
+
+  useEffect(() => {
+    timeoutRef.current = setTimeout(() => searchProducts(), 1000)
+
+    return () => clearTimeout(timeoutRef.current);
+  }, [price, searchSort, urlFilter])
 
   // set filter data from url when query changes
   useEffect(() => {
@@ -109,7 +119,7 @@ export const useSyncFilter = () => {
   // take value from price range
   const takeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.currentTarget.value);
-    value && setPrice(value * 10);
+    value && setPrice(value * 10)
   }
 
   const resetFilter = () => {
@@ -137,7 +147,12 @@ export const useSyncFilter = () => {
     const categoriesFilter = JSON.stringify([...filterCategory].join(','));
     const urlFilter = categoriesFilter.substring(1, categoriesFilter.length - 1);
 
-    router.push(`search?value=${searchValue}&sort=${sort}&selectCategories=${urlFilter}&priceFilter=${price}`);
+    setSearchSort(sort);
+    setURLFilter(urlFilter);
+  }
+
+  const searchProducts = () => {
+    router.push(`search?value=${searchValue}&sort=${searchSort}&selectCategories=${urlFilter}&priceFilter=${price}`);
   }
 
   return {

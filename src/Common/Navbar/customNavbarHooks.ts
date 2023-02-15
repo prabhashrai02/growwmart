@@ -36,7 +36,7 @@ export const useNavbar = () => {
           pathname: "/search",
         });
     }, 1000)
-
+ 
     return () => clearTimeout(timeoutRef.current);
   }, [searchValue])
 
