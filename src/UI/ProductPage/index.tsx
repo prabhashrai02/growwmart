@@ -25,7 +25,7 @@ const ProductPage = ({ product }: ProductPageProp) => {
       <div className={style.product67CardContainer}>
         {
           product ?
-            <Card data={product} showDescription={true} productPage={true} />
+            <Card data={product} showDescription={true} productPage={true} cartPage={false} quantity={0} wishList={false} />
             :
             <CardSkeleton productPage={true} />
         }
