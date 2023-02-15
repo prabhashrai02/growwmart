@@ -36,7 +36,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
 
     .product23All {
         margin-top: 10rem !important;
@@ -49,7 +49,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
 
     .productlist43page {
         flex-direction: column;

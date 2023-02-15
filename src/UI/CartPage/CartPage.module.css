@@ -28,7 +28,6 @@
     top: 0;
     justify-content: space-evenly;
     width: 75%;
-    /* min-width: 21rem; */
     padding: 1rem;
     background-color: var(--light-background);
     z-index: 1;
@@ -36,14 +35,13 @@
 
 .cart12SwitchButton {
     width: 49%;
-    /* min-width: 9.5rem; */
 }
 
 .active56Button {
     background-color: var(--light-background);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .cart98CartPage {
         margin: auto;
         flex-direction: column;

@@ -32,7 +32,7 @@
     height: 8rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
 
     .product67allFeatured {
         flex-direction: column;
